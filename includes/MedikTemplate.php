@@ -32,7 +32,7 @@ class MedikTemplate extends BaseTemplate {
 			'wide' => 'col-md-10'
 		];
 
-		if ( SkinMedik::versionCompare( '1.39', '<' ) ) {
+		if ( version_compare( MW_VERSION, '1.39', '<' ) ) {
 			$fontSize = $this->getSkin()->getUser()->getOption( 'medik-font' );
 		} else {
 			$fontSize = MediaWikiServices::getInstance()
@@ -41,7 +41,7 @@ class MedikTemplate extends BaseTemplate {
 		}
 
 		// Check MW 1.39 which introduced 'bodyOnly' and also to cover getOptions() introduced in MW 1.38.
-		$skinOptions = SkinMedik::versionCompare( '1.39', '>=' ) ? $this->getSkin()->getOptions() : [];
+		$skinOptions = version_compare( MW_VERSION, '1.39', '>=' ) ? $this->getSkin()->getOptions() : [];
 		$bodyOnly = $skinOptions['bodyOnly'] ?? false;
 
 		echo $templateParser->processTemplate( 'skin', [
@@ -657,7 +657,7 @@ class MedikTemplate extends BaseTemplate {
 	 * @return string html
 	 */
 	protected function getAfterPortlet( $name ) {
-		if ( SkinMedik::versionCompare( '1.37', '<' ) ){
+		if ( version_compare( MW_VERSION, '1.37', '<' ) ){
 			return parent::getAfterPortlet( $name );
 		} else {
 			$html = '';

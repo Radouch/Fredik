@@ -49,7 +49,7 @@ class SkinMedik extends SkinTemplate {
 	 * @param array &$preferences
 	 */
 	public static function onGetPreferences( User $user, array &$preferences ) {
-		if ( self::versionCompare( '1.39', '<' ) ) {
+		if ( version_compare( MW_VERSION, '1.39', '<' ) ) {
 			$skin = $user->getOption( 'skin' );
 		} else {
 			$skin = MediaWikiServices::getInstance()
@@ -74,18 +74,5 @@ class SkinMedik extends SkinTemplate {
 				'default' => '0.9em'
 			];
 		}
-	}
-
-	/**
-	 * Compares the current MediaWiki version with a specific version using PHP's version_compare().
-	 *
-	 * @param string $version
-	 * @param string $operator
-	 *
-	 * @return int|bool
-	 */
-	public static function versionCompare( $version, $operator ) {
-		$mwVersion = defined( MW_VERSION ) ? MW_VERSION : $GLOBALS['wgVersion'];
-		return version_compare( $mwVersion, $version, $operator );
 	}
 }
