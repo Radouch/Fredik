@@ -1,4 +1,7 @@
 <?php
+
+use MediaWiki\MediaWikiServices;
+
 /**
  * SkinTemplate class for the Medik skin
  * https://bitbucket.org/wikiskripta/medik
@@ -46,7 +49,15 @@ class SkinMedik extends SkinTemplate {
 	 * @param array &$preferences
 	 */
 	public static function onGetPreferences( User $user, array &$preferences ) {
-		if ( $user->getOption( 'skin' ) === 'medik' ) {
+		if ( version_compare( MW_VERSION, '1.39', '<' ) ) {
+			$skin = $user->getOption( 'skin' );
+		} else {
+			$skin = MediaWikiServices::getInstance()
+				->getUserOptionsLookup()
+				->getOption( $user, 'skin' );
+		}
+
+		if ( $skin === 'medik' ) {
 			$preferences[ 'medik-font' ] = [
 				'type' => 'select',
 				'label-message' => 'medik-font-label',

@@ -1,4 +1,7 @@
 <?php
+
+use MediaWiki\MediaWikiServices;
+
 /**
  * BaseTemplate class for the Medik skin
  * https://bitbucket.org/wikiskripta/medik
@@ -28,15 +31,28 @@ class MedikTemplate extends BaseTemplate {
 			'narrow' => 'col-md-9 col-xl-8',
 			'wide' => 'col-md-10'
 		];
+
+		if ( version_compare( MW_VERSION, '1.39', '<' ) ) {
+			$fontSize = $this->getSkin()->getUser()->getOption( 'medik-font' );
+		} else {
+			$fontSize = MediaWikiServices::getInstance()
+				->getUserOptionsLookup()
+				->getOption( $this->getSkin()->getUser(), 'medik-font' );
+		}
+
+		// Check MW 1.39 which introduced 'bodyOnly' and also to cover getOptions() introduced in MW 1.38.
+		$skinOptions = version_compare( MW_VERSION, '1.39', '>=' ) ? $this->getSkin()->getOptions() : [];
+		$bodyOnly = $skinOptions['bodyOnly'] ?? false;
+
 		echo $templateParser->processTemplate( 'skin', [
-			'html-skinstart' => $this->get( 'headelement' ),
+			'html-skinstart' => !$bodyOnly ? $this->get( 'headelement' ) : '',
 			'medik-color' => RequestContext::getMain()->getConfig()->get( 'MedikColor' ),
 			'html-logo' => $this->getLogo(),
 			'html-search-userlinks' => $this->getSearch() . $this->getUserLinks(),
 			'medik-sidebar-width' => $sidebarWidth[
 				RequestContext::getMain()->getConfig()->get( 'MedikContentWidth' )
 				] ?? $sidebarWidth['default'],
-			'medik-fontsize' => $this->getSkin()->getUser()->getOption( 'medik-font' ),
+			'medik-fontsize' => $fontSize,
 			'html-navigation-heading' => $this->getMsg( 'navigation-heading' )->parse(),
 			'html-site-navigation' => $this->getSiteNavigation(),
 			'medik-content-width' => $contentWidth[
@@ -57,7 +73,7 @@ class MedikTemplate extends BaseTemplate {
 			'html-categorylinks' => $this->getCategoryLinks(),
 			'html-dataaftercontent' => $this->getDataAfterContent() . $this->get( 'debughtml' ),
 			'html-footer' => $this->getFooterBlock(),
-			'html-skinend' => $this->getTrail() . '</body></html>',
+			'html-skinend' => !$bodyOnly ? $this->getTrail() . '</body></html>' : '',
 		] );
 	}
 
@@ -641,7 +657,7 @@ class MedikTemplate extends BaseTemplate {
 	 * @return string html
 	 */
 	protected function getAfterPortlet( $name ) {
-		if ( $this->versionCompare( '1.37', '<' ) ){
+		if ( version_compare( MW_VERSION, '1.37', '<' ) ){
 			return parent::getAfterPortlet( $name );
 		} else {
 			$html = '';
@@ -788,18 +804,5 @@ class MedikTemplate extends BaseTemplate {
 		$html .= $this->getClear() . Html::closeElement( 'div' );
 
 		return $html;
-	}
-
-	/**
-	 * Compares the current MediaWiki version with a specific version using PHP's version_compare().
-	 *
-	 * @param string $version
-	 * @param string $operator
-	 *
-	 * @return int|bool
-	 */
-	protected function versionCompare( $version, $operator ) {
-		$mwVersion = defined( MW_VERSION ) ? MW_VERSION : $GLOBALS['wgVersion'];
-		return version_compare( $mwVersion, $version, $operator );
 	}
 }
