@@ -9,10 +9,20 @@
 	"license-name": "CC0-1.0",
 	"type": "skin",
 	"ValidSkinNames": {
-		"medik": "Medik"
+		"medik": {
+			"class": "SkinMedik",
+			"args": [
+				{
+					"name": "medik",
+					"bodyOnly": true,
+					"template": "MedikTemplate",
+					"responsive": true
+				}
+			]
+		}
 	},
 	"requires": {
-		"MediaWiki": ">= 1.29.0"
+		"MediaWiki": ">= 1.35.0"
 	},
 	"MessagesDirs": {
 		"Medik": [

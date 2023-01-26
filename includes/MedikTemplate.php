@@ -40,8 +40,12 @@ class MedikTemplate extends BaseTemplate {
 				->getOption( $this->getSkin()->getUser(), 'medik-font' );
 		}
 
+		// Check MW 1.39 which introduced 'bodyOnly' and also to cover getOptions() introduced in MW 1.38.
+		$skinOptions = SkinMedik::versionCompare( '1.39', '>=' ) ? $this->getSkin()->getOptions() : [];
+		$bodyOnly = $skinOptions['bodyOnly'] ?? false;
+
 		echo $templateParser->processTemplate( 'skin', [
-			'html-skinstart' => $this->get( 'headelement' ),
+			'html-skinstart' => !$bodyOnly ? $this->get( 'headelement' ) : '',
 			'medik-color' => RequestContext::getMain()->getConfig()->get( 'MedikColor' ),
 			'html-logo' => $this->getLogo(),
 			'html-search-userlinks' => $this->getSearch() . $this->getUserLinks(),
@@ -69,7 +73,7 @@ class MedikTemplate extends BaseTemplate {
 			'html-categorylinks' => $this->getCategoryLinks(),
 			'html-dataaftercontent' => $this->getDataAfterContent() . $this->get( 'debughtml' ),
 			'html-footer' => $this->getFooterBlock(),
-			'html-skinend' => $this->getTrail() . '</body></html>',
+			'html-skinend' => !$bodyOnly ? $this->getTrail() . '</body></html>' : '',
 		] );
 	}
 
