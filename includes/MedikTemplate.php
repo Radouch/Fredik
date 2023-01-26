@@ -1,4 +1,7 @@
 <?php
+
+use MediaWiki\MediaWikiServices;
+
 /**
  * BaseTemplate class for the Medik skin
  * https://bitbucket.org/wikiskripta/medik
@@ -28,6 +31,15 @@ class MedikTemplate extends BaseTemplate {
 			'narrow' => 'col-md-9 col-xl-8',
 			'wide' => 'col-md-10'
 		];
+
+		if ( SkinMedik::versionCompare( '1.39', '<' ) ) {
+			$fontSize = $this->getSkin()->getUser()->getOption( 'medik-font' );
+		} else {
+			$fontSize = MediaWikiServices::getInstance()
+				->getUserOptionsLookup()
+				->getOption( $this->getSkin()->getUser(), 'medik-font' );
+		}
+
 		echo $templateParser->processTemplate( 'skin', [
 			'html-skinstart' => $this->get( 'headelement' ),
 			'medik-color' => RequestContext::getMain()->getConfig()->get( 'MedikColor' ),
@@ -36,7 +48,7 @@ class MedikTemplate extends BaseTemplate {
 			'medik-sidebar-width' => $sidebarWidth[
 				RequestContext::getMain()->getConfig()->get( 'MedikContentWidth' )
 				] ?? $sidebarWidth['default'],
-			'medik-fontsize' => $this->getSkin()->getUser()->getOption( 'medik-font' ),
+			'medik-fontsize' => $fontSize,
 			'html-navigation-heading' => $this->getMsg( 'navigation-heading' )->parse(),
 			'html-site-navigation' => $this->getSiteNavigation(),
 			'medik-content-width' => $contentWidth[
@@ -641,7 +653,7 @@ class MedikTemplate extends BaseTemplate {
 	 * @return string html
 	 */
 	protected function getAfterPortlet( $name ) {
-		if ( $this->versionCompare( '1.37', '<' ) ){
+		if ( SkinMedik::versionCompare( '1.37', '<' ) ){
 			return parent::getAfterPortlet( $name );
 		} else {
 			$html = '';
@@ -788,18 +800,5 @@ class MedikTemplate extends BaseTemplate {
 		$html .= $this->getClear() . Html::closeElement( 'div' );
 
 		return $html;
-	}
-
-	/**
-	 * Compares the current MediaWiki version with a specific version using PHP's version_compare().
-	 *
-	 * @param string $version
-	 * @param string $operator
-	 *
-	 * @return int|bool
-	 */
-	protected function versionCompare( $version, $operator ) {
-		$mwVersion = defined( MW_VERSION ) ? MW_VERSION : $GLOBALS['wgVersion'];
-		return version_compare( $mwVersion, $version, $operator );
 	}
 }
