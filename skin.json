@@ -1,7 +1,7 @@
 {
 	"name": "Medik",
 	"namemsg": "skinname-medik",
-	"version": "3.2.7",
+	"version": "4.0.0",
 	"author": "Petr Kajzar",
 	"url": "https://www.mediawiki.org/wiki/Skin:Medik",
 	"description": "MediaWiki skin based on Bootstrap 4, originaly created for WikiSkripta.eu",
@@ -22,7 +22,7 @@
 		}
 	},
 	"requires": {
-		"MediaWiki": ">= 1.35.0"
+		"MediaWiki": ">= 1.39.0"
 	},
 	"MessagesDirs": {
 		"Medik": [
@@ -69,7 +69,9 @@
 		"skins.medik": {
 			"class": "ResourceLoaderSkinModule",
 			"features": {
-				"legacy": false
+				"content-links": true,
+				"content-links-external": true,
+				"content-tables": true
 			},
 			"styles": {
 				"resources/libraries/bootstrap.min.css": {
