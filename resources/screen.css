@@ -406,3 +406,6 @@ dd {
 .catlinks ul > li:not(:last-child) {
 	border-right: 1px solid #cdd1d5;
 }
+.catlinks-allhidden {
+	display:none;
+}
