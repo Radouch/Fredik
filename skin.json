@@ -16,7 +16,6 @@
 					"name": "medik",
 					"bodyOnly": true,
 					"template": "MedikTemplate",
-					"templateDirectory": "skins/Medik/templates/",
 					"responsive": true
 				}
 			]
