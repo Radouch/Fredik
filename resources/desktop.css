@@ -36,3 +36,7 @@ aside .dropdown,
 li.footer-icons {
 	padding-left: 1em;
 }
+
+dd {
+	margin-left: 25px;
+}
