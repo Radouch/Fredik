@@ -32,16 +32,12 @@ class MedikTemplate extends BaseTemplate {
 			'wide' => 'col-md-10'
 		];
 
-		if ( version_compare( MW_VERSION, '1.39', '<' ) ) {
-			$fontSize = $this->getSkin()->getUser()->getOption( 'medik-font' );
-		} else {
-			$fontSize = MediaWikiServices::getInstance()
-				->getUserOptionsLookup()
-				->getOption( $this->getSkin()->getUser(), 'medik-font' );
-		}
+		$fontSize = MediaWikiServices::getInstance()
+			->getUserOptionsLookup()
+			->getOption( $this->getSkin()->getUser(), 'medik-font' );
 
 		// Check MW 1.39 which introduced 'bodyOnly' and also to cover getOptions() introduced in MW 1.38.
-		$skinOptions = version_compare( MW_VERSION, '1.39', '>=' ) ? $this->getSkin()->getOptions() : [];
+		$skinOptions = $this->getSkin()->getOptions();
 		$bodyOnly = $skinOptions['bodyOnly'] ?? false;
 
 		echo $templateParser->processTemplate( 'skin', [
@@ -657,24 +653,20 @@ class MedikTemplate extends BaseTemplate {
 	 * @return string html
 	 */
 	protected function getAfterPortlet( $name ) {
-		if ( version_compare( MW_VERSION, '1.37', '<' ) ){
-			return parent::getAfterPortlet( $name );
-		} else {
-			$html = '';
-			$content = '';
-			$this->getHookRunner()->onBaseTemplateAfterPortlet( $this, $name, $content );
-			$content .= $this->getSkin()->getAfterPortlet( $name );
+		$html = '';
+		$content = '';
+		$this->getHookRunner()->onBaseTemplateAfterPortlet( $this, $name, $content );
+		$content .= $this->getSkin()->getAfterPortlet( $name );
 
-			if ( $content !== '' ) {
-				$html = Html::rawElement(
-					'div',
-					[ 'class' => [ 'after-portlet', 'after-portlet-' . $name ] ],
-					$content
-				);
-			}
-
-			return $html;
+		if ( $content !== '' ) {
+			$html = Html::rawElement(
+				'div',
+				[ 'class' => [ 'after-portlet', 'after-portlet-' . $name ] ],
+				$content
+			);
 		}
+
+		return $html;
 	}
 
 	/**
