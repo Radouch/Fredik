@@ -128,7 +128,7 @@ You can contribute to the original git repository:
 ## License
 
 Created at 1st Faculty of Medicine, Charles University,
-and maintained by Petr Kajzar, 2019–2022.
+and maintained by Petr Kajzar, 2019–2023.
 
 This skin is:
 
