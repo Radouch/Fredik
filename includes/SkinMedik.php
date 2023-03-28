@@ -33,11 +33,7 @@ class SkinMedik extends SkinTemplate {
 			$out->addModuleStyles( [ 'skins.medik.unresponsive' ] );
 		}
 
-		$out->addModuleStyles( [
-			'mediawiki.skinning.interface',
-			'mediawiki.skinning.content.externallinks',
-			'skins.medik'
-		] );
+		$out->addModuleStyles( [ 'skins.medik' ] );
 
 		$out->addModules( [ 'skins.medik.js' ] );
 	}
