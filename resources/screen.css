@@ -317,7 +317,7 @@ fieldset[class*="options"] {
 	padding: revert;
 }
 
-fieldset[class*="options"] legend {
+legend {
 	font-size: initial;
 	font-weight: bold;
 	padding: revert;
