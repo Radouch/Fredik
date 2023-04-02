@@ -290,21 +290,6 @@ aside a:not( .disabled ) {
 	margin-bottom: 0;
 }
 
-.mw-htmlform fieldset:not(.oo-ui-layout) {
-	border: 1px solid #a2a9b1;
-    margin: 1em 0 1em 0;
-    padding: 0 1em 1em;
-}
-
-.mw-htmlform fieldset:not(.oo-ui-layout) legend {
-	padding-left: 0.5em;
-}
-
-.mw-htmlform legend {
-	font-size: 100%;
-	font-weight: bold;
-}
-
 #mw-upload-form td {
 	vertical-align: top;
 }
@@ -312,9 +297,10 @@ aside a:not( .disabled ) {
 /* Basic forms
    ========================================================================== */
 
-fieldset[class*="options"] {
-	border: 2px solid #c0c0c0;
-	padding: revert;
+fieldset {
+	border: 1px solid #a2a9b1;
+	margin: 1em 0 1em 0;
+	padding: 0 1em 1em;
 }
 
 legend {
