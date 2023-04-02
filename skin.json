@@ -1,7 +1,7 @@
 {
 	"name": "Medik",
 	"namemsg": "skinname-medik",
-	"version": "4.0.1",
+	"version": "4.0.2",
 	"author": "Petr Kajzar",
 	"url": "https://www.mediawiki.org/wiki/Skin:Medik",
 	"description": "MediaWiki skin based on Bootstrap 4, originaly created for WikiSkripta.eu",
