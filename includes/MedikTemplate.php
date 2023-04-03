@@ -36,12 +36,7 @@ class MedikTemplate extends BaseTemplate {
 			->getUserOptionsLookup()
 			->getOption( $this->getSkin()->getUser(), 'medik-font' );
 
-		// Check MW 1.39 which introduced 'bodyOnly' and also to cover getOptions() introduced in MW 1.38.
-		$skinOptions = $this->getSkin()->getOptions();
-		$bodyOnly = $skinOptions['bodyOnly'] ?? false;
-
 		echo $templateParser->processTemplate( 'skin', [
-			'html-skinstart' => !$bodyOnly ? $this->get( 'headelement' ) : '',
 			'medik-color' => RequestContext::getMain()->getConfig()->get( 'MedikColor' ),
 			'html-logo' => $this->getLogo(),
 			'html-search-userlinks' => $this->getSearch() . $this->getUserLinks(),
@@ -69,7 +64,6 @@ class MedikTemplate extends BaseTemplate {
 			'html-categorylinks' => $this->getCategoryLinks(),
 			'html-dataaftercontent' => $this->getDataAfterContent() . $this->get( 'debughtml' ),
 			'html-footer' => $this->getFooterBlock(),
-			'html-skinend' => !$bodyOnly ? $this->getTrail() . '</body></html>' : '',
 		] );
 	}
 
@@ -164,8 +158,8 @@ class MedikTemplate extends BaseTemplate {
 			[ 'hidden' ],
 			Html::label( $this->getMsg( 'search' )->text(), 'searchInput' )
 		);
-		$html .= $this->makeSearchInput( [ 'id' => 'searchInput', 'class' => 'form-control mr-sm-2' ] );
-		$html .= $this->makeSearchButton(
+		$html .= $this->getSkin()->makeSearchInput( [ 'id' => 'searchInput', 'class' => 'form-control mr-sm-2' ] );
+		$html .= $this->getSkin()->makeSearchButton(
 			'go',
 			[
 				'hidden',
@@ -231,9 +225,7 @@ class MedikTemplate extends BaseTemplate {
 					[ 'class' => 'dropdown-menu dropdown-menu dropdown-menu-right' ],
 					$this->getPortlet(
 						'tb',
-						count( $this->data['sidebar']['TOOLBOX'] ) === 0 ?
-							$this->getToolbox() :
-							$this->data['sidebar']['TOOLBOX'],
+						$this->data['sidebar']['TOOLBOX'],
 						'toolbox',
 						[ 'add-class' => 'dropdown-item' ]
 					)
@@ -300,9 +292,7 @@ class MedikTemplate extends BaseTemplate {
 				case 'TOOLBOX':
 					$html .= $this->getPortlet(
 						'tb',
-						count( $this->data['sidebar']['TOOLBOX'] ) === 0 ?
-							$this->getToolbox() :
-							$this->data['sidebar']['TOOLBOX'],
+						$this->data['sidebar']['TOOLBOX'],
 						'toolbox'
 					);
 					break;
@@ -370,7 +360,7 @@ class MedikTemplate extends BaseTemplate {
 		if ( !empty( $echoicons ) ) {
 			$icons = '';
 			foreach ( $echoicons as $key => $item ) {
-				$icons .= $this->makeListItem( $key, $item );
+				$icons .= $this->getSkin()->makeListItem( $key, $item );
 			}
 			$html .= Html::rawElement(
 				'div',
@@ -579,7 +569,7 @@ class MedikTemplate extends BaseTemplate {
 						$item['link-class'] = " {$options['add-class']}";
 					}
 				}
-				$contentText .= $this->makeListItem( $key, $item, $options['list-item'] );
+				$contentText .= $this->getSkin()->makeListItem( $key, $item, $options['list-item'] );
 			}
 			// Compatibility with extensions still using SkinTemplateToolboxEnd or similar
 			if ( is_array( $options['hooks'] ) ) {
@@ -631,40 +621,16 @@ class MedikTemplate extends BaseTemplate {
 			}
 			$body = Html::rawElement( $options['body-wrapper'], $bodyDivOptions,
 				$contentText .
-				$this->getAfterPortlet( $name )
+				$this->getSkin()->getAfterPortlet( $name )
 			);
 		} else {
-			$body = $contentText . $this->getAfterPortlet( $name );
+			$body = $contentText . $this->getSkin()->getAfterPortlet( $name );
 		}
 
 		$html = Html::rawElement( 'div', $divOptions,
 			Html::rawElement( 'a', $labelOptions, $msgString ) .
 			$body
 		);
-
-		return $html;
-	}
-
-	/**
-	 * Backward compatible version of BaseTemplate::getAfterPortlet().
-	 *
-	 * @param $name
-	 *
-	 * @return string html
-	 */
-	protected function getAfterPortlet( $name ) {
-		$html = '';
-		$content = '';
-		$this->getHookRunner()->onBaseTemplateAfterPortlet( $this, $name, $content );
-		$content .= $this->getSkin()->getAfterPortlet( $name );
-
-		if ( $content !== '' ) {
-			$html = Html::rawElement(
-				'div',
-				[ 'class' => [ 'after-portlet', 'after-portlet-' . $name ] ],
-				$content
-			);
-		}
 
 		return $html;
 	}
