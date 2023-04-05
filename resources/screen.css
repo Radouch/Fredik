@@ -199,7 +199,6 @@ nav {
 
 aside {
 	display: inline-block;
-	font-size: 0.9em;
 	white-space: nowrap;
 	z-index: 1000;
 }
@@ -230,10 +229,6 @@ aside a:not( .disabled ) {
 
 #mw-main-container {
 	background-color: #fff;
-}
-
-#siteNotice {
-	font-size: 0.9em;
 }
 
 #content {
@@ -365,7 +360,6 @@ legend {
 	background-color: #fff;
 	border-top: 1px solid #e5e5e5;
 	color: #808080;
-	font-size: 0.9em;
 	padding: 3em 1em 1em;
 }
 

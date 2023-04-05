@@ -98,7 +98,6 @@
 }
 
 aside {
-	font-size: 80%;
 	padding: 0.5em 0;
 }
 
@@ -145,6 +144,7 @@ aside .dropdown,
 
 /* Footer
    ========================================================================== */
+
 
 li.footer-icons {
 	padding-right: 1em;
