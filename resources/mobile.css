@@ -57,6 +57,10 @@
 	padding-right: 10px;
 }
 
+#user-tools {
+	margin-right: 1em;
+}
+
 .profile-icon {
 	background-color: #fff;
 	border: 1px solid #fff;
