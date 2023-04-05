@@ -118,7 +118,8 @@ aside li a:not( .dropdown-item ):hover {
 	color: #fff;
 }
 
-a.dropdown-item:visited {
+a.dropdown-item:visited,
+.mw-portlet-body a.new {
 	color: #212529;
 }
 
