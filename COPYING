@@ -1,4 +1,5 @@
-Copyright (c) 2019-2023 First Faculty of Medicine, Charles University
+Copyright (c) 2019-2022 First Faculty of Medicine, Charles University
+              2022-2023 Petr Kajzar
 
 Created by: Petr Kajzar <petr.kajzar@centrum.cz>
 
@@ -21,11 +22,11 @@ Note that the skin is:
 
 	https://getbootstrap.com/
 
-- using popper.js library (included in 'resources/libraries/'), provided under
+- using popper.js library (bundled with Bootstrap), provided under
   the MIT license:
 
 	https://popper.js.org/
 
-- and created for WikiSkripta, a medical wiki project:
+- and originally created for WikiSkripta, a medical wiki project:
 
 	https://www.wikiskripta.eu

@@ -8,7 +8,6 @@ use MediaWiki\MediaWikiServices;
  *
  * @ingroup Skins
  * @author Petr Kajzar
- * @copyright 1st Faculty of Medicine, Charles University, Czech Republic
  * @license https://creativecommons.org/publicdomain/zero/1.0/ CC0-1.0
  */
 class MedikTemplate extends BaseTemplate {
