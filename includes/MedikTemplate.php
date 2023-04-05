@@ -194,8 +194,8 @@ class MedikTemplate extends BaseTemplate {
 					[
 						'class' => 'dropdown-toggle ',
 						'role' => 'button',
-						'data-toggle' => 'dropdown',
-						'data-display' => 'static',
+						'data-bs-toggle' => 'dropdown',
+						'data-bs-display' => 'static',
 						'aria-haspopup' => 'true',
 						'aria-expanded' => 'false'
 					],
@@ -203,7 +203,7 @@ class MedikTemplate extends BaseTemplate {
 				) .
 				Html::rawElement(
 					'div',
-					[ 'class' => 'dropdown-menu dropdown-menu-right' ],
+					[ 'class' => 'dropdown-menu dropdown-menu-end' ],
 					$this->getPageLinks()
 				)
 			) .
@@ -213,8 +213,8 @@ class MedikTemplate extends BaseTemplate {
 					[
 						'class' => 'dropdown-toggle ',
 						'role' => 'button',
-						'data-toggle' => 'dropdown',
-						'data-display' => 'static',
+						'data-bs-toggle' => 'dropdown',
+						'data-bs-display' => 'static',
 						'aria-haspopup' => 'true',
 						'aria-expanded' => 'false'
 					],
@@ -222,7 +222,7 @@ class MedikTemplate extends BaseTemplate {
 				) .
 				Html::rawElement(
 					'div',
-					[ 'class' => 'dropdown-menu dropdown-menu dropdown-menu-right' ],
+					[ 'class' => 'dropdown-menu dropdown-menu dropdown-menu-end' ],
 					$this->getPortlet(
 						'tb',
 						$this->data['sidebar']['TOOLBOX'],
@@ -402,17 +402,17 @@ class MedikTemplate extends BaseTemplate {
 							 [
 								 'class' => 'btn btn-link dropdown-toggle dropdown-toggle-split',
 								 'type' => 'button',
-								 'data-toggle' => 'dropdown',
+								 'data-bs-toggle' => 'dropdown',
 								 'aria-haspopup' => 'true',
 								 'aria-expanded' => 'false'
 							 ],
-							 Html::rawElement( 'span', [ 'class' => 'sr-only' ], '&darr;' )
+							 Html::rawElement( 'span', [ 'class' => 'visually-hidden' ], '&darr;' )
 						 );
 
 		// Basic list output
 		$html .= Html::rawElement(
 							 'div',
-							 [ 'class' => 'dropdown-menu dropdown-menu-right' ],
+							 [ 'class' => 'dropdown-menu dropdown-menu-end' ],
 							 $this->getPortlet(
 								 'personal',
 								 $personaltools,

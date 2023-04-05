@@ -24,7 +24,7 @@
 	font-size: inherit;
 	font-style: normal;
 	height: 1em;
-	margin-right: 1em;
+	margin: 0 1em;
 	position: relative;
 	text-indent: -9999px;
 	vertical-align: middle;
@@ -86,7 +86,7 @@
 	position: absolute;
 	left: 100%;
 	top: calc( 100% + 1.5em );
-	margin-left: -92vw;
+	margin-left: -97vw;
 }
 
 #searchInput {

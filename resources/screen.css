@@ -3,9 +3,9 @@
 /* Basic typography
    ========================================================================== */
 
-   a.feedlink {
-	background-position: 6px center;
-	padding-left: 1.5em;
+a.feedlink {
+	background-position: 2px center;
+	background-size: 12px 12px;
 }
 
 img {
@@ -18,9 +18,19 @@ table caption {
 	color: inherit;
 }
 
-.dropdown a:hover,
-.mw-portlet-body a:hover {
+a,
+a:hover,
+#user-tools .btn-link {
 	text-decoration: none;
+}
+
+#content a:hover {
+	text-decoration: underline;
+}
+
+.mw-portlet-body ul,
+#footer ul {
+	padding: 0;
 }
 
 /* Navbar and hamburger menu
