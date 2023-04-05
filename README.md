@@ -87,7 +87,6 @@ options:
 - `default`
 - `full`
 - `narrow`
-- `wide`
 
 At large screens, the main content container (with articles, texts, etc.) is
 9/12 of the screen width and sidebar menu takes 2/12 of the screen width. It
@@ -108,11 +107,6 @@ the sidebar on the left and 2/12 for the white space on the right), use
 `narrow`:
 
     $wgMedikContentWidth = 'narrow';
-
-If you need a wide main content with a narrow left sidebar, use `wide`. Then
-the sidebar will be 1/12 and the main content 10/12:
-
-    $wgMedikContentWidth = 'wide';
 
 ### User settings
 
