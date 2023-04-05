@@ -219,6 +219,11 @@ aside a:not( .disabled ) {
 	display: none;
 }
 
+.dropdown .nav-link.disabled {
+	color: #6c757d;
+	padding: .3rem .5rem;
+}
+
 /* Main content
    ========================================================================== */
 
