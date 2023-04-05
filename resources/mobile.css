@@ -145,6 +145,9 @@ aside .dropdown,
 /* Footer
    ========================================================================== */
 
+#footer ul {
+	margin-left: 0;
+}
 
 li.footer-icons {
 	padding-right: 1em;
