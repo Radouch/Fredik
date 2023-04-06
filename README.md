@@ -71,14 +71,6 @@ Additionaly, if you have `$wgMedikShowLogo = 'main';`, you can specify these:
     // use only logo without text (i.e. without site name)
     $wgMedikUseLogoWithoutText = true;
 
-#### Responsive skin
-
-Note that this skin is responsive by default, i.e. it fits the screen both on
-desktops and on mobile screens. If you need unresponsive design, just set in
-`LocalSettings.php`:
-
-    $wgMedikResponsive = false;
-
 #### Content width
 
 You can set the content width with `$wgMedikContentWidth`, which has four

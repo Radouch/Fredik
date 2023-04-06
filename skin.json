@@ -91,23 +91,12 @@
 				},
 				"resources/print.css": {
 					"media": "print"
-				}
-			}
-		},
-		"skins.medik.responsive": {
-			"styles": {
+				},
 				"resources/desktop.css": {
 					"media": "screen and (min-width: 768px)"
 				},
 				"resources/mobile.css": {
 					"media": "screen and (max-width: 767px)"
-				}
-			}
-		},
-		"skins.medik.noresponsive": {
-			"styles": {
-				"resources/desktop.css": {
-					"media": "screen"
 				}
 			}
 		},
