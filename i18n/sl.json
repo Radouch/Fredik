@@ -6,7 +6,7 @@
 	},
 	"skinname-medik": "Medik",
 	"medik-default": "privzeto",
-	"medik-desc": "Preobleka za WikiSkripta.eu, medicinski viki projekt 1. medicinske fakultete Karlove univerze (Češka).",
+	"medik-desc": "Preprosta in jasna preobleka na podlagi knjižnice Bootstrap",
 	"medik-font-label": "Velikost pisave",
 	"medik-tools-menu": "Urejanje in orodja"
 }
