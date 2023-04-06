@@ -25,7 +25,12 @@ class SkinMedik extends SkinTemplate {
 	 */
 	public function initPage( OutputPage $out ) {
 		$out->addMeta( 'theme-color', RequestContext::getMain()->getConfig()->get( 'MedikColor' ) );
-		$out->addMeta( 'viewport', 'width=device-width' );
+		
+		if ( MediaWikiServices::getInstance()
+			->getUserOptionsLookup()
+			->getOption( $this->getSkin()->getUser(), 'skin-responsive' ) ) {
+				$out->addMeta( 'viewport', 'width=device-width' );
+		}
 
 		$out->addModuleStyles( [ 'skins.medik' ] );
 
