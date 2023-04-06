@@ -1,7 +1,7 @@
 {
 	"name": "Medik",
 	"namemsg": "skinname-medik",
-	"version": "5.0.0",
+	"version": "5.1.0",
 	"author": "Petr Kajzar",
 	"url": "https://www.mediawiki.org/wiki/Skin:Medik",
 	"description": "Simple and clean skin based on the Bootstrap library",
