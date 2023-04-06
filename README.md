@@ -100,13 +100,6 @@ the sidebar on the left and 2/12 for the white space on the right), use
 
     $wgMedikContentWidth = 'narrow';
 
-### User settings
-
-#### Basic font size
-
-Every user is able to change the default font size in their user settings. It's
-found in `Special:Preferences` under the skin preferences.
-
 ## Contributing
 
 You can contribute to the original git repository:

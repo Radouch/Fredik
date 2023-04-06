@@ -24,15 +24,10 @@ class MedikTemplate extends BaseTemplate {
 			'narrow' => 'col-xl-8',
 		];
 
-		$fontSize = MediaWikiServices::getInstance()
-			->getUserOptionsLookup()
-			->getOption( $this->getSkin()->getUser(), 'medik-font' );
-
 		echo $templateParser->processTemplate( 'skin', [
 			'medik-color' => RequestContext::getMain()->getConfig()->get( 'MedikColor' ),
 			'html-logo' => $this->getLogo(),
 			'html-search-userlinks' => $this->getSearch() . $this->getUserLinks(),
-			'medik-fontsize' => $fontSize,
 			'html-navigation-heading' => $this->getMsg( 'navigation-heading' )->parse(),
 			'html-site-navigation' => $this->getSiteNavigation(),
 			'medik-content-width' => $contentWidth[

@@ -32,33 +32,4 @@ class SkinMedik extends SkinTemplate {
 		$out->addModules( [ 'skins.medik.js' ] );
 	}
 
-	/**
-	 * Add user preferences
-	 *
-	 * @param User $user
-	 * @param array &$preferences
-	 */
-	public static function onGetPreferences( User $user, array &$preferences ) {
-		$skin = MediaWikiServices::getInstance()
-			->getUserOptionsLookup()
-			->getOption( $user, 'skin' );
-
-		if ( $skin === 'medik' ) {
-			$preferences[ 'medik-font' ] = [
-				'type' => 'select',
-				'label-message' => 'medik-font-label',
-				'section' => 'rendering/skin',
-				'options' => [
-					'80%' => '0.8em',
-					'85%' => '0.85em',
-					'90% (' . wfMessage( 'medik-default' )->text() . ')' => '0.9em',
-					'95%' => '0.95em',
-					'100%' => '1.0em',
-					'105%' => '1.05em',
-					'110%' => '1.1em'
-				],
-				'default' => '0.9em'
-			];
-		}
-	}
 }
