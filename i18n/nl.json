@@ -1,10 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
+			"HanV",
 			"Mainframe98"
 		]
 	},
 	"medik-default": "standaard",
-	"medik-desc": "Vormgeving voor WikiSkripta.eu, een medisch wikiproject van de 1ste faculteit geneeskunde, Karelsuniversiteit (Tsjechië).",
+	"medik-desc": "Eenvoudige en schone skin op basis van de Bootstrap-bibliotheek.",
 	"medik-font-label": "Lettergrootte"
 }
