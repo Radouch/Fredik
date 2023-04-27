@@ -73,7 +73,7 @@ Additionaly, if you have `$wgMedikShowLogo = 'main';`, you can specify these:
 
 #### Content width
 
-You can set the content width with `$wgMedikContentWidth`, which has four
+You can set the content width with `$wgMedikContentWidth`, which has three
 options:
 
 - `default`
@@ -107,9 +107,6 @@ You can contribute to the original git repository:
     https://bitbucket.org/wikiskripta/medik/
 
 ## License
-
-Created at 1st Faculty of Medicine, Charles University,
-and maintained by Petr Kajzar, 2019–2023.
 
 This skin is:
 
