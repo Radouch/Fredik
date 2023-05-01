@@ -104,7 +104,7 @@ the sidebar on the left and 2/12 for the white space on the right), use
 
 You can contribute to the original git repository:
 
-    https://bitbucket.org/wikiskripta/medik/
+    https://github.com/petrkajzar/mediawiki-skin-medik/
 
 ## License
 
