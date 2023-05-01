@@ -16,17 +16,13 @@ LocalSettings.php:
     wfLoadSkin( 'Medik' );
     $wgDefaultSkin = 'medik';
 
-However, if you install this plugin manually, make sure it is
-installed in 'lib/tpl/wikipraktik' correctly.
-
 For additional info on how to configure this skin please refer to:
 
     https://www.mediawiki.org/wiki/Skin:Medik
 
 ----
 
-Copyright (c) First Faculty of Medicine, Charles University
-              Petr Kajzar
+Copyright (c) Petr Kajzar and First Faculty of Medicine, Charles University
 
 Created and maintained by: Petr Kajzar
 
