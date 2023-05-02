@@ -4,7 +4,6 @@ use MediaWiki\MediaWikiServices;
 
 /**
  * BaseTemplate class for the Medik skin
- * https://github.com/petrkajzar/mediawiki-skin-medik
  *
  * @ingroup Skins
  * @author Petr Kajzar

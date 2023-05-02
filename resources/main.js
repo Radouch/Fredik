@@ -1,4 +1,5 @@
-/* Medik | CC0 license | https://github.com/petrkajzar/mediawiki-skin-medik */
+/* Medik | CC0 license | javascript file */
+
 $( function () {
 
 	/*

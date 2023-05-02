@@ -4,27 +4,24 @@ Skin Medik for MediaWiki
 This is a MediaWiki skin based on Bootstrap library, originally
 created for WikiSkripta.
 
-All documentation for this template can be found at:
+For documentation on how to install, configure and use this skin
+please refer to:
 
     https://www.mediawiki.org/wiki/Skin:Medik
 
 For installation or upgrading download and place the files in
 a directory called 'Medik' in your 'skins/' folder of MediaWiki
-installation. Add the following code at the bottom of your
+installation. Then add the following code at the bottom of your
 LocalSettings.php:
 
     wfLoadSkin( 'Medik' );
     $wgDefaultSkin = 'medik';
 
-For additional info on how to configure this skin please refer to:
-
-    https://www.mediawiki.org/wiki/Skin:Medik
+For any additionaly info please visit the URL mentioned above.
 
 ----
 
 Copyright (c) Petr Kajzar and First Faculty of Medicine, Charles University
-
-Created and maintained by: Petr Kajzar
 
 This program is free software; you can redistribute it and/or modify
 it under the terms of the Creative Commons Zero v1.0 Universal license.
@@ -41,7 +38,7 @@ Note that this MediaWiki skin is:
 	https://www.mediawiki.org/wiki/Skin:Example
 
 - using the Bootstrap library (included in 'resources/libraries/'),
-  bundled with popper.js and provided under the MIT license:
+  bundled with popper.js, both provided under the MIT license:
 
 	https://getbootstrap.com/
 
