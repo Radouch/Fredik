@@ -6,7 +6,7 @@
 	},
 	"skinname-medik": "Medik",
 	"medik-default": "por omissão",
-	"medik-desc": "Tema for WikiSkripta.eu, um projeto wiki medicinal da Primeira Faculdade de Medicina, Unidade de Charles (República Checa).",
+	"medik-desc": "Tema simples e limpo, baseado na biblioteca Bootstrap.",
 	"medik-font-label": "Tamanho da fonte",
 	"medik-tools-menu": "Edição e ferramentas"
 }
