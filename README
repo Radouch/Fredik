@@ -7,7 +7,7 @@ created for WikiSkripta.
 For documentation on how to install, configure and use this skin
 please refer to:
 
-    https://www.mediawiki.org/wiki/Skin:Medik
+https://www.mediawiki.org/wiki/Skin:Medik
 
 For installation or upgrading download and place the files in
 a directory called 'Medik' in your 'skins/' folder of MediaWiki
@@ -30,20 +30,19 @@ This program is distributed in the hope that it will be useful,
 but WITHOUT ANY WARRANTY; without even the implied warranty of
 MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 
-Note that this MediaWiki skin is:
+This skin is based on the MediaWiki Skin:Example, provided under CC0-1.0
+license:
 
-- based on the MediaWiki Skin:Example, provided under CC0-1.0
-  license:
+https://www.mediawiki.org/wiki/Skin:Example
 
-	https://www.mediawiki.org/wiki/Skin:Example
+This skin is using the Bootstrap library
+(included in 'resources/libraries/'), bundled with popper.js, both
+provided under the MIT license:
 
-- using the Bootstrap library (included in 'resources/libraries/'),
-  bundled with popper.js, both provided under the MIT license:
+https://getbootstrap.com/
 
-	https://getbootstrap.com/
+This skin is originally created for WikiSkripta, a medical wiki project:
 
-- and originally created for WikiSkripta, a medical wiki project:
-
-	https://www.wikiskripta.eu
+https://www.wikiskripta.eu
 
 See the LICENSE file for details.
