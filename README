@@ -19,30 +19,23 @@ LocalSettings.php:
 
 For any additionaly info please visit the URL mentioned above.
 
-----
+License
+-------
 
-Copyright (c) Petr Kajzar and First Faculty of Medicine, Charles University
+Copyright (c) First Faculty of Medicine, Charles University
 
-This program is free software; you can redistribute it and/or modify
-it under the terms of the Creative Commons Zero v1.0 Universal license.
-
-This program is distributed in the hope that it will be useful,
-but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
-
-This skin is based on the MediaWiki Skin:Example, provided under CC0-1.0
-license:
-
-https://www.mediawiki.org/wiki/Skin:Example
-
-This skin is using the Bootstrap library
-(included in 'resources/libraries/'), bundled with popper.js, both
-provided under the MIT license:
-
-https://getbootstrap.com/
-
-This skin is originally created for WikiSkripta, a medical wiki project:
-
-https://www.wikiskripta.eu
+* This program is free software; you can redistribute it and/or modify
+  it under the terms of the Creative Commons Zero v1.0 Universal
+  license.
+* This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+* This skin is based on the MediaWiki Skin:Example, provided under
+  the CC0-1.0 license: https://www.mediawiki.org/wiki/Skin:Example
+* This skin is using the Bootstrap library
+  (included in 'resources/libraries/'), bundled with popper.js, both
+  provided under the MIT license: https://getbootstrap.com/
+* This skin is originally created for WikiSkripta, a medical wiki
+  project: https://www.wikiskripta.eu
 
 See the LICENSE file for details.
