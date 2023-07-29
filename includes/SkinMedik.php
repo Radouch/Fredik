@@ -6,8 +6,6 @@ use MediaWiki\MediaWikiServices;
  * SkinTemplate class for the Medik skin
  *
  * @ingroup Skins
- * @author Petr Kajzar
- * @license https://creativecommons.org/publicdomain/zero/1.0/ CC0-1.0
  */
 class SkinMedik extends SkinTemplate {
 	/** @var string lowercase skin name */

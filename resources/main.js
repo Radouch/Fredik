@@ -1,4 +1,4 @@
-/* Medik | CC0 license | javascript file */
+/* Medik | javascript file */
 
 $( function () {
 
