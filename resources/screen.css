@@ -225,7 +225,7 @@ aside a:not( .disabled ) {
 }
 
 .mw-notification-area-layout {
-    top: 3em;
+    top: 4em !important;
 }
 
 /* Main content
