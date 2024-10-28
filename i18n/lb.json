@@ -2,12 +2,13 @@
 	"@metadata": {
 		"authors": [
 			"Les Meloures",
-			"Robby"
+			"Robby",
+			"Volvox"
 		]
 	},
 	"skinname-medik": "Medik",
 	"medik-default": "Standard",
-	"medik-desc": "Ausgesinn fir WikiSkripta.eu, medezinesche Wiki Projet vun der 1. Fakultéit fir Medezin, Charles Universitéit (Tschechesch Republik).",
+	"medik-desc": "Einfach a propper Benotzeruewerfläch, déi op der Bootstrap-Bibliothéik baséiert.",
 	"medik-font-label": "Schrëftgréisst",
 	"medik-tools-menu": "Änneren a Geschier"
 }
