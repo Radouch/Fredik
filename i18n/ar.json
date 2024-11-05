@@ -7,7 +7,7 @@
 	},
 	"skinname-medik": "ميديك",
 	"medik-default": "افتراضي",
-	"medik-desc": "Skin for WikiSkripta.eu ، مشروع wiki الطبي لكلية الطب الأولى ، جامعة تشارلز (جمهورية التشيك).",
+	"medik-desc": "واجهة مستخدم بسيطة ونظيفة تعتمد على مكتبة Bootstrap.",
 	"medik-font-label": "حجم الخط",
 	"medik-tools-menu": "التعديل والأدوات"
 }
