@@ -68,14 +68,14 @@ class MedikTemplate extends BaseTemplate {
 		$html .= Html::element( 'span', [ 'class' => 'mw-hamb' ] );
 
 		// Site title
-		$siteTitle = Html::rawElement(
+		$siteTitle = Html::element(
 			'span',
 			[
 				'class' => 'mw-desktop-sitename'
 			],
 			RequestContext::getMain()->getConfig()->get( 'Sitename' )
 		);
-		$siteMobileTitle = Html::rawElement(
+		$siteMobileTitle = Html::element(
 			'span',
 			[
 				'class' => 'mw-mobile-sitename'
@@ -170,7 +170,7 @@ class MedikTemplate extends BaseTemplate {
 				[ 'portlet-list-tag' => 'div', 'list-item' => [ 'tag' => 'span' ] ]
 			) .
 			Html::rawElement( 'div', [ 'class' => 'dropdown' ],
-				Html::rawElement(
+				Html::element(
 					'a',
 					[
 						'class' => 'dropdown-toggle ',
@@ -189,7 +189,7 @@ class MedikTemplate extends BaseTemplate {
 				)
 			) .
 			Html::rawElement( 'div', [ 'class' => 'dropdown' ],
-				Html::rawElement(
+				Html::element(
 					'a',
 					[
 						'class' => 'dropdown-toggle ',
@@ -369,7 +369,7 @@ class MedikTemplate extends BaseTemplate {
 								 $personaltools['userpage']['links'][0]['href'] ??
 									$personaltools['login']['links'][0]['href'] ??
 									$personaltools['login-private']['links'][0]['href'] ],
-							 Html::rawElement(
+							 Html::element(
 								 'button',
 								 [
 									 'class' => 'btn btn-link',
