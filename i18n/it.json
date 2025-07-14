@@ -1,9 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
-			"Beta16"
+			"Beta16",
+			"Emabarto01"
 		]
 	},
 	"medik-default": "predefinito",
-	"medik-font-label": "Dimensione carattere"
+	"medik-font-label": "Dimensione carattere",
+	"medik-tools-menu": "Modifica e strumenti"
 }
