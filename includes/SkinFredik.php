@@ -3,17 +3,17 @@
 use MediaWiki\MediaWikiServices;
 
 /**
- * SkinTemplate class for the Medik skin
+ * SkinTemplate class for the Fredik skin
  *
  * @ingroup Skins
  */
-class SkinMedik extends SkinTemplate {
+class SkinFredik extends SkinTemplate {
 	/** @var string lowercase skin name */
-	public $skinname = 'medik';
+	public $skinname = 'fredik';
 	/** @var string full skin name */
-	public $stylename = 'Medik';
+	public $stylename = 'Fredik';
 	/** @var string skin template */
-	public $template = 'MedikTemplate';
+	public $template = 'FredikTemplate';
 
 	/**
 	 * Add CSS via ResourceLoader
@@ -21,17 +21,17 @@ class SkinMedik extends SkinTemplate {
 	 * @param OutputPage $out OutputPage
 	 */
 	public function initPage( OutputPage $out ) {
-		$out->addMeta( 'theme-color', RequestContext::getMain()->getConfig()->get( 'MedikColor' ) );
-		
+		$out->addMeta( 'theme-color', RequestContext::getMain()->getConfig()->get( 'FredikColor' ) );
+
 		if ( MediaWikiServices::getInstance()
 			->getUserOptionsLookup()
 			->getOption( $this->getSkin()->getUser(), 'skin-responsive' ) ) {
 				$out->addMeta( 'viewport', 'width=device-width' );
 		}
 
-		$out->addModuleStyles( [ 'skins.medik' ] );
+		$out->addModuleStyles( [ 'skins.fredik' ] );
 
-		$out->addModules( [ 'skins.medik.js' ] );
+		$out->addModules( [ 'skins.fredik.js' ] );
 	}
 
 }

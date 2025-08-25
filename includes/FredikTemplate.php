@@ -3,11 +3,11 @@
 use MediaWiki\MediaWikiServices;
 
 /**
- * BaseTemplate class for the Medik skin
+ * BaseTemplate class for the Fredik skin
  *
  * @ingroup Skins
  */
-class MedikTemplate extends BaseTemplate {
+class FredikTemplate extends BaseTemplate {
 
 	/**
 	 * Outputs the entire contents of the page
@@ -22,13 +22,13 @@ class MedikTemplate extends BaseTemplate {
 		];
 
 		echo $templateParser->processTemplate( 'skin', [
-			'medik-color' => RequestContext::getMain()->getConfig()->get( 'MedikColor' ),
+			'fredik-color' => RequestContext::getMain()->getConfig()->get( 'FredikColor' ),
 			'html-logo' => $this->getLogo(),
 			'html-search-userlinks' => $this->getSearch() . $this->getUserLinks(),
 			'html-navigation-heading' => $this->getMsg( 'navigation-heading' )->parse(),
 			'html-site-navigation' => $this->getSiteNavigation(),
-			'medik-content-width' => $contentWidth[
-				RequestContext::getMain()->getConfig()->get( 'MedikContentWidth' )
+			'fredik-content-width' => $contentWidth[
+				RequestContext::getMain()->getConfig()->get( 'FredikContentWidth' )
 				] ?? $contentWidth['default'],
 			'html-sitenotice' => $this->getSiteNotice(),
 			'html-talknotice' => $this->getNewTalk(),
@@ -80,11 +80,11 @@ class MedikTemplate extends BaseTemplate {
 			[
 				'class' => 'mw-mobile-sitename'
 			],
-			RequestContext::getMain()->getConfig()->get( 'MedikMobileSitename' ) ??
+			RequestContext::getMain()->getConfig()->get( 'FredikMobileSitename' ) ??
 				RequestContext::getMain()->getConfig()->get( 'Sitename' )
 		);
-		$logoWidth = RequestContext::getMain()->getConfig()->get( 'MedikLogoWidth' );
-		$siteLogo = ( RequestContext::getMain()->getConfig()->get( 'MedikShowLogo' ) === 'main' ?
+		$logoWidth = RequestContext::getMain()->getConfig()->get( 'FredikLogoWidth' );
+		$siteLogo = ( RequestContext::getMain()->getConfig()->get( 'FredikShowLogo' ) === 'main' ?
 			Html::rawElement(
 				'span',
 				[
@@ -107,7 +107,7 @@ class MedikTemplate extends BaseTemplate {
 				'href' => $this->data['nav_urls']['mainpage']['href']
 			] + Linker::tooltipAndAccesskeyAttribs( 'p-logo' ),
 			$siteLogo .
-			( RequestContext::getMain()->getConfig()->get( 'MedikUseLogoWithoutText' ) ?
+			( RequestContext::getMain()->getConfig()->get( 'FredikUseLogoWithoutText' ) ?
 				'' :
 				$siteTitle . ' ' . $siteMobileTitle
 			)
@@ -234,7 +234,7 @@ class MedikTemplate extends BaseTemplate {
 	protected function getSiteNavigation() {
 		$html = '';
 
-		$html .= ( RequestContext::getMain()->getConfig()->get( 'MedikShowLogo' ) === 'sidebar' ?
+		$html .= ( RequestContext::getMain()->getConfig()->get( 'FredikShowLogo' ) === 'sidebar' ?
 			Html::rawElement(
 				'div',
 				[
@@ -244,7 +244,7 @@ class MedikTemplate extends BaseTemplate {
 					'a',
 					[
 						'class' => 'mw-wiki-logo',
-						'style' => ( RequestContext::getMain()->getConfig()->get( 'MedikContentWidth' ) === 'wide' ?
+						'style' => ( RequestContext::getMain()->getConfig()->get( 'FredikContentWidth' ) === 'wide' ?
 							'height: clamp(4em, 4vw, 10em); width: clamp(4em, 60%, 10em);' :
 							'' ),
 						'href' => $this->data['nav_urls']['mainpage']['href']

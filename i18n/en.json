@@ -1,10 +1,10 @@
 {
 	"@metadata": {
-		"authors": [ "Petr Kajzar" ]
+		"authors": [ "Petr Kajzar", "Radek Svítil" ]
 	},
-	"skinname-medik": "Medik",
-	"medik-default": "default",
-	"medik-desc": "Simple and clean skin based on the Bootstrap library.",
-	"medik-font-label": "Font size",
-	"medik-tools-menu": "Editing and tools"
+	"skinname-fredik": "Fredik",
+	"fredik-default": "default",
+	"fredik-desc": "Simple and clean skin based on the Bootstrap library. Based on Medik skin by Petr Kajzar.",
+	"fredik-font-label": "Font size",
+	"fredik-tools-menu": "Editing and tools"
 }

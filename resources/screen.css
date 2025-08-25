@@ -1,4 +1,4 @@
-/*! Medik | screen style */
+/*! Fredik | screen style */
 
 /* Basic typography
    ========================================================================== */
@@ -37,7 +37,7 @@ a:hover,
    ========================================================================== */
 
 .bg-ws {
-	background-color: var( --medik );
+	background-color: var( --fredik );
 }
 
 #mw-navbar .mw-wiki-logo {
@@ -208,7 +208,7 @@ aside a:not( .disabled ) {
 }
 
 #p-namespaces .selected a {
-	border-bottom: 3px solid var( --medik );
+	border-bottom: 3px solid var( --fredik );
 }
 
 #p-namespaces .selected a:hover {

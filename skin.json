@@ -1,21 +1,21 @@
 {
-	"name": "Medik",
-	"namemsg": "skinname-medik",
-	"version": "5.1.3",
-	"author": "Petr Kajzar",
+	"name": "Fredik",
+	"namemsg": "skinname-fredik",
+	"version": "0.1.0",
+	"author": "Radek Svítil (original author of Medik: Petr Kajzar)",
 	"url": "https://www.mediawiki.org/wiki/Skin:Medik",
 	"description": "Simple and clean skin based on the Bootstrap library",
-	"descriptionmsg": "medik-desc",
+	"descriptionmsg": "fredik-desc",
 	"license-name": "CC0-1.0",
 	"type": "skin",
 	"ValidSkinNames": {
-		"medik": {
-			"class": "SkinMedik",
+		"fredik": {
+			"class": "SkinFredik",
 			"args": [
 				{
-					"name": "medik",
+					"name": "fredik",
 					"bodyOnly": true,
-					"template": "MedikTemplate",
+					"template": "FredikTemplate",
 					"responsive": true
 				}
 			]
@@ -25,42 +25,42 @@
 		"MediaWiki": ">= 1.39.0"
 	},
 	"MessagesDirs": {
-		"Medik": [
+		"Fredik": [
 			"i18n"
 		]
 	},
 	"config": {
-		"MedikColor": {
+		"FredikColor": {
 			"value": "#ffbe00",
 			"description": "Default color of the wiki theme."
 		},
-		"MedikContentWidth": {
+		"FredikContentWidth": {
 			"value": "default",
 			"description": "Extend the content to the full width on XL screens."
 		},
-		"MedikLogoWidth": {
+		"FredikLogoWidth": {
 			"value": "default",
 			"description": "Set the logo width."
 		},
-		"MedikMobileSitename": {
+		"FredikMobileSitename": {
 			"value": null,
 			"description": "Short sitename for mobile screens."
 		},
-		"MedikResponsive": {
+		"FredikResponsive": {
 			"value": true,
-			"description": "Enable responsive Medik design."
+			"description": "Enable responsive Fredik design."
 		},
-		"MedikShowLogo": {
+		"FredikShowLogo": {
 			"value": "none",
 			"description": "Show logo in the header bar."
 		},
-		"MedikUseLogoWithoutText" : {
+		"FredikUseLogoWithoutText" : {
 			"value": false,
 			"description": "Show only logo without text in the navbar."
 		}
 	},
 	"ResourceModules": {
-		"skins.medik": {
+		"skins.fredik": {
 			"class": "MediaWiki\\ResourceLoader\\SkinModule",
 			"features": {
 				"content-links": true,
@@ -94,7 +94,7 @@
 				}
 			}
 		},
-		"skins.medik.js": {
+		"skins.fredik.js": {
 			"scripts": [
 				"resources/main.js",
 				"resources/libraries/bootstrap.bundle.min.js"
@@ -103,11 +103,11 @@
 	},
 	"ResourceFileModulePaths": {
 		"localBasePath": "",
-		"remoteSkinPath": "Medik"
+		"remoteSkinPath": "Fredik"
 	},
 	"AutoloadClasses": {
-		"SkinMedik": "includes/SkinMedik.php",
-		"MedikTemplate": "includes/MedikTemplate.php"
+		"SkinFredik": "includes/SkinFredik.php",
+		"FredikTemplate": "includes/FredikTemplate.php"
 	},
 	"manifest_version": 2
 }

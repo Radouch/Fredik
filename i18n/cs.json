@@ -1,12 +1,12 @@
 {
 	"@metadata": {
 		"authors": [
-			"Petr Kajzar"
+			"Petr Kajzar", "Radek Svítil"
 		]
 	},
-	"skinname-medik": "Medik",
-	"medik-default": "výchozí",
-	"medik-desc": "Jednoduchý skin založený na knihovně Boostrap.",
-	"medik-font-label": "Velikost písma",
-	"medik-tools-menu": "Úpravy a nástroje"
+	"skinname-fredik": "Fredik",
+	"fredik-default": "výchozí",
+	"fredik-desc": "Jednoduchý skin založený na knihovně Boostrap. Založeno na skinu Medik od Petra Kajzara.",
+	"fredik-font-label": "Velikost písma",
+	"fredik-tools-menu": "Úpravy a nástroje"
 }

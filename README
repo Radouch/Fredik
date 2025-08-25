@@ -1,21 +1,21 @@
-Skin Medik for MediaWiki
+Skin Fredik for MediaWiki
 ========================
 
-This is a MediaWiki skin based on Bootstrap library, originally
-created for WikiSkripta.
+This is a MediaWiki skin based on Bootstrap library intended for website <https://www.franklinova-expedice.cz>, originally
+created for [WikiSkripta](https://www.wikiskripta.eu) as **Medik**.
 
-For documentation on how to install, configure and use this skin
+For documentation on how to install, configure and use **the original skin (Medik)**
 please refer to:
 
-https://www.mediawiki.org/wiki/Skin:Medik
+<https://www.mediawiki.org/wiki/Skin:Medik>
 
 For installation or upgrading download and place the files in
-a directory called 'Medik' in your 'skins/' folder of MediaWiki
+a directory called 'Fredik' in your 'skins/' folder of MediaWiki
 installation. Then add the following code at the bottom of your
 LocalSettings.php:
 
-    wfLoadSkin( 'Medik' );
-    $wgDefaultSkin = 'medik';
+    wfLoadSkin( 'Fredik' );
+    $wgDefaultSkin = 'fredik';
 
 For any additionaly info please visit the URL mentioned above.
 

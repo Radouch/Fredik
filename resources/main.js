@@ -1,4 +1,4 @@
-/* Medik | javascript file */
+/* Fredik | javascript file */
 
 $( function () {
 
@@ -6,7 +6,7 @@ $( function () {
 	 * Site navigation
 	 * adds proper Bootstrap CSS class to links added via mw.util.addPortletLink()
 	 */
-	function medikNavigation() {
+	function fredikNavigation() {
 		$( '#p-personal li a:not(.dropdown-item), aside li a:not(.dropdown-item)' )
 			.addClass( 'dropdown-item' );
 		$( '#mw-navigation li a:not(.nav-link)' )
@@ -23,7 +23,7 @@ $( function () {
 	/*
 	 * Remove echo notifications popup on smaller screens
 	 */
-	function medikRemoveEchoPopup() {
+	function fredikRemoveEchoPopup() {
 		if ( $( window ).width() <= 650 ) {
 			$( 'a.mw-echo-notifications-badge' ).off( 'click' );
 		}
@@ -33,7 +33,7 @@ $( function () {
 	 * Hamburger menu
 	 * opens navigation sidebar and login/user menu
 	 */
-	function medikTogglehamb() {
+	function fredikTogglehamb() {
 		$( '#mw-navigation nav' ).toggle( 'fast' );
 	}
 
@@ -42,19 +42,19 @@ $( function () {
 	 */
 
 	// immediately
-	medikNavigation();
-	medikRemoveEchoPopup();
+	fredikNavigation();
+	fredikRemoveEchoPopup();
 	hideAsideDropdown();
-	$( '.mw-hamb' ).on( 'click', medikTogglehamb );
+	$( '.mw-hamb' ).on( 'click', fredikTogglehamb );
 
 	// repeat every 1 s for 10 s after DOM content loaded
-	window.medikVarI = 0;
-	window.medikTimer = window.setInterval( function () {
-		medikNavigation();
-		medikRemoveEchoPopup();
-		window.medikVarI++;
-		if ( window.medikVarI === 10 ) {
-			window.clearInterval( window.medikTimer );
+	window.fredikVarI = 0;
+	window.fredikTimer = window.setInterval( function () {
+		fredikNavigation();
+		fredikRemoveEchoPopup();
+		window.fredikVarI++;
+		if ( window.fredikVarI === 10 ) {
+			window.clearInterval( window.fredikTimer );
 		}
 	}, 1000 );
 
