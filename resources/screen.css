@@ -368,20 +368,62 @@ legend {
 }
 
 .mw-footer a {
-	color: #808080;
+	/* color: #808080; */
+	color: var(--bs-info-text-emphasis);
 	font-weight: 600;
 }
 
+#footer-info {
+	text-align: center;
+}
+
+#footer-info-copyright {
+	margin-top: 1rem;
+}
+
+.bmc-btn-container {
+	margin-top: 1rem;
+}
+
+.mw-footer .bmc-btn .bmc-btn-text {
+	color: var(--bs-white);
+}
+
+.mw-footer .bmc-btn:hover .bmc-btn-text {
+	color: var(--bs-orange);
+}
+
 .mw-footer a:hover {
-	color: #444;
-	text-decoration: none;
+	text-decoration: underline;
+
 }
 
 .mw-footer li {
-	display: inline;
+	display: block;
 	list-style-type: none;
 }
 
-.mw-footer #footer-list li:not( :first-child )::before {
+.mw-footer #footer-places li {
+	display: inline;
+}
+
+#footer-places {
+	text-align: center;
+}
+
+.mw-footer #footer-places li:not( :first-child )::before {
 	content: ' ― ';
 }
+
+#footer-icons {
+	display: flex;
+	justify-content: center;
+}
+
+#footer-icons li:nth-child(odd) {
+    padding-right: 1rem;
+}
+#footer-icons li:nth-child(even) {
+    padding-left: 1rem;
+}
+

@@ -44,9 +44,11 @@ aside .dropdown,
 }
 
 #footer-icons {
-	float: right;
+	float: none;
 }
 
+/*
 li.footer-icons {
 	padding-left: 1em;
 }
+*/

@@ -677,7 +677,7 @@ class FredikTemplate extends BaseTemplate {
 		$options = $setOptions + [
 			'id' => 'footer',
 			'class' => 'mw-footer',
-			'order' => 'iconsfirst',
+			'order' => 'iconslast', // was iconsfirst
 			'link-prefix' => 'footer',
 			'link-style' => null
 		];
