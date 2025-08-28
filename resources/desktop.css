@@ -40,7 +40,7 @@ aside .dropdown,
 }
 
 #toc.toc {
-	float: right;
+	float: none;
 }
 
 #footer-icons {

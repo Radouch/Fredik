@@ -428,3 +428,9 @@ legend {
     padding-left: 1rem;
 }
 
+/* Recent changes list
+   ========================================================================== */
+.mw-changeslist-legend {
+	float: none;
+}
+
