@@ -14,7 +14,13 @@ class FredikTemplate extends BaseTemplate {
 	 * (uses templates/skin.mustache as a template)
 	 */
 	public function execute() {
-		$templateParser = new TemplateParser( __DIR__ . '/../templates' );
+		// Add support for MW 1.44
+		if ( version_compare( MW_VERSION, '1.40', '>=' ) ) {
+			$templateParser = new MediaWiki\Html\TemplateParser( __DIR__ . '/../templates' );
+		} else {
+			$templateParser = new TemplateParser( __DIR__ . '/../templates' );
+		}
+
 		$contentWidth = [
 			'full' => 'col-xl-10',
 			'default' => 'col-xl-9',
