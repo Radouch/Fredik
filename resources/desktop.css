@@ -4,6 +4,10 @@
 	display: none;
 }
 
+.mw-desktop-subtitle {
+	font-weight: normal;
+}
+
 #mw-navbar-left {
 	padding-left: 1.75em;
 }

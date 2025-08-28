@@ -105,6 +105,19 @@ class FredikTemplate extends BaseTemplate {
 			''
 		);
 
+		// Optional subtitle (desktop only)
+		$subtitle = RequestContext::getMain()->getConfig()->get( 'MedikSubtitle' );
+		$subtitleHtml = '';
+		if ( $subtitle ) {
+			$subtitleHtml = Html::element(
+				'span',
+				[
+					'class' => 'mw-desktop-subtitle d-none d-md-inline'
+				],
+				$subtitle
+			);
+		}
+
 		$html .= Html::rawElement(
 			'a',
 			[
@@ -115,7 +128,7 @@ class FredikTemplate extends BaseTemplate {
 			$siteLogo .
 			( RequestContext::getMain()->getConfig()->get( 'FredikUseLogoWithoutText' ) ?
 				'' :
-				$siteTitle . ' ' . $siteMobileTitle
+				$siteTitle . ' ' . $siteMobileTitle . ' ' . $subtitleHtml
 			)
 		);
 

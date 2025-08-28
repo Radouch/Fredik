@@ -57,6 +57,10 @@
 		"FredikUseLogoWithoutText" : {
 			"value": false,
 			"description": "Show only logo without text in the navbar."
+		},
+		"FredikSubtitle": {
+			"value": null,
+			"description": "Optional subtitle shown after the site title on desktop."
 		}
 	},
 	"ResourceModules": {
