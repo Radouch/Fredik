@@ -148,7 +148,7 @@ class FredikTemplate extends BaseTemplate {
 			[
 				'action' => $this->get( 'wgScript' ),
 				'role' => 'search',
-				'class' => 'mw-portlet form-inline my-lg-0',
+				'class' => 'mw-portlet form-inline my-lg-0 ps-2 ps-md-0 me-2',
 				'id' => 'p-search'
 			]
 		);
@@ -158,7 +158,7 @@ class FredikTemplate extends BaseTemplate {
 			[ 'hidden' ],
 			Html::label( $this->getMsg( 'search' )->text(), 'searchInput' )
 		);
-		$html .= $this->getSkin()->makeSearchInput( [ 'id' => 'searchInput', 'class' => 'form-control mr-sm-2' ] );
+		$html .= $this->getSkin()->makeSearchInput( [ 'id' => 'searchInput', 'class' => 'form-control' ] );
 		$html .= $this->getSkin()->makeSearchButton(
 			'go',
 			[

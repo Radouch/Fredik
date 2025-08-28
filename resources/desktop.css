@@ -16,6 +16,12 @@
 	padding-right: 1.5em;
 }
 
+/** Wider search input */
+#p-search {
+	flex-grow: 1;
+	max-width: 25rem;
+}
+
 .mw-label {
 	white-space: nowrap;
 }
