@@ -16,3 +16,9 @@
 - Wider search input.
 - Added optional subtitle.
 - Support for MW 1.44.
+
+## 0.4.0
+
+- Minor layout adjustments (unfloating some blocks)
+- div.mw-body-content now has a .container-fluid class
+
