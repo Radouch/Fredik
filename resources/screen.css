@@ -184,14 +184,15 @@ nav {
 	color: #444;
 	margin-top: 1em;
 	font-weight: bold;
+	background-color: var(--bs-info-bg-subtle);
 }
 
 #mw-navigation a:not( .disabled ) {
-	color: #808080;
+	color: var(--bs-info-text-emphasis);
 }
 
 #mw-navigation a:not( .disabled ):hover {
-	color: #444;
+	text-decoration: underline;
 }
 
 /* Aside (edit) menu
