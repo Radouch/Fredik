@@ -106,7 +106,7 @@ class FredikTemplate extends BaseTemplate {
 		);
 
 		// Optional subtitle (desktop only)
-		$subtitle = RequestContext::getMain()->getConfig()->get( 'MedikSubtitle' );
+		$subtitle = RequestContext::getMain()->getConfig()->get( 'FredikSubtitle' );
 		$subtitleHtml = '';
 		if ( $subtitle ) {
 			$subtitleHtml = Html::element(
