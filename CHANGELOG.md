@@ -8,3 +8,11 @@
 
 - Fixed problem with menu disappearing when switching from small to medium viewport.
 - Changelog created.
+
+## 0.3.0
+
+- Redesigned footer layout.
+- Changed menu styles.
+- Wider search input.
+- Added optional subtitle.
+- Support for MW 1.44.
