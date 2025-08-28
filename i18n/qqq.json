@@ -5,9 +5,9 @@
 			"Radek Svítil"
 		]
 	},
-	"skinname-medik": "Name of the Fredik skin",
-	"medik-default": "Label of default user settings",
-	"medik-desc": "Description of the Fredik skin",
-	"medik-font-label": "User settings: heading of the select menu that allows user to change the basic font-size",
-	"medik-tools-menu": "Aside menu above the article: label for 'edit and tools' dropdown menu"
+	"skinname-fredik": "Name of the Fredik skin",
+	"fredik-default": "Label of default user settings",
+	"fredik-desc": "Description of the Fredik skin",
+	"fredik-font-label": "User settings: heading of the select menu that allows user to change the basic font-size",
+	"fredik-tools-menu": "Aside menu above the article: label for 'edit and tools' dropdown menu"
 }
