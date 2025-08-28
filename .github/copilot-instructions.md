@@ -1,6 +1,6 @@
 # GitHub Copilot Instructions
 
-Repository: frmedik
+Repository: fredik
 Domain: Mediawiki skin
 
 ## Communication style
