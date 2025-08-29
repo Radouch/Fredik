@@ -38,7 +38,8 @@ Download the whole repository as a ZIP file and extract it to a folder on your m
 ## Installation in MediaWiki
 
 1. Create a folder `Fredik` in the `skins/` directory of your MediaWiki installation.
-2. Upload the contents of the skin folder from your machine, **excluding `node_modules/`** (it won’t be used on the server).
+2. Upload the contents of the skin folder from your machine, **excluding**: `node_modules/`, `.git`, `.github/`, `.vscode/`.
+
 3. Add the following code at the bottom of your `LocalSettings.php`:
 
    ```php
@@ -48,8 +49,8 @@ Download the whole repository as a ZIP file and extract it to a folder on your m
    ```
 
 4. You can use all configuration parameters described on the **original Medik skin** page on MediaWiki:
-<https://www.mediawiki.org/wiki/Skin:Medik>
-but replace the `M` prefix with `Fr`, e.g. `$wgFredikColor` instead of `$wgMedikColor`.
+   <https://www.mediawiki.org/wiki/Skin:Medik>
+   but replace the `M` prefix with `Fr`, e.g. `$wgFredikColor` instead of `$wgMedikColor`.
 
 There is one additional parameter specific to _Fredik_ — `$wgFredikSubtitle`. This is an optional subtitle shown after the site title on desktop.
 
