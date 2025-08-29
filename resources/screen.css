@@ -4,98 +4,122 @@
    ========================================================================== */
 
 a.feedlink {
-	background-position: 2px center;
-	background-size: 12px 12px;
+  background-position: 2px center;
+  background-size: 12px 12px;
 }
 
 img {
-	height: auto;
-	max-width: 100%;
+  height: auto;
+  max-width: 100%;
 }
 
 table caption {
-	caption-side: top;
-	color: inherit;
+  caption-side: top;
+  color: inherit;
 }
 
 a,
 a:hover,
 #user-tools .btn-link {
-	text-decoration: none;
+  text-decoration: none;
 }
 
 #content a:hover {
-	text-decoration: underline;
+  text-decoration: underline;
 }
 
 .mw-portlet-body ul,
 #footer ul {
-	padding: 0;
+  padding: 0;
+}
+
+/* See https://www.mediawiki.org/wiki/Manual:ResourceLoaderSkinModule#1.43:_Deprecating_the_i18n-all-lists-margins_feature */
+ul {
+  margin-top: 0.3em;
+  padding: 0;
+}
+
+ul .margin-inline {
+  margin-left: 1.6em;
+  margin-right: 1.6em;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+ol .margin-inline {
+  margin-left: 3.2em;
+  margin-right: 3.2em;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+dd .margin-inline {
+  margin: 1.6em, 0;
 }
 
 /* Navbar and hamburger menu
    ========================================================================== */
 
 .bg-ws {
-	background-color: var( --fredik );
+  background-color: var(--fredik);
 }
 
 #mw-navbar .mw-wiki-logo {
-	background-repeat: no-repeat;
-	background-size: contain;
-	display: inline-block;
-	height: 1.4em;
-	margin-right: 0.5em;
-	position: relative;
-	top: 0.4em;
-	width: 1.4em;
+  background-repeat: no-repeat;
+  background-size: contain;
+  display: inline-block;
+  height: 1.4em;
+  margin-right: 0.5em;
+  position: relative;
+  top: 0.4em;
+  width: 1.4em;
 }
 
 #mw-navigation .mw-wiki-logo {
-	background-repeat: no-repeat;
-	background-size: contain;
-	display: block;
-	height: 10em;
-	margin: 2em auto 0;
-	width: 10em;
+  background-repeat: no-repeat;
+  background-size: contain;
+  display: block;
+  height: 10em;
+  margin: 2em auto 0;
+  width: 10em;
 }
 
 #mw-navbar-right {
-	display: flex;
+  display: flex;
 }
 
 #searchInput {
-	max-width: 100%;
+  max-width: 100%;
 }
 
 #user-tools button {
-	color: #fff;
+  color: #fff;
 }
 
 #p-personal ul,
 aside ul {
-	margin: 0;
+  margin: 0;
 }
 
 #p-personal li,
 aside li {
-	list-style-type: none;
+  list-style-type: none;
 }
 
-#p-personal li a:not( .dropdown-item ),
-aside li a:not( .dropdown-item ),
-#p-personal li a:not( .dropdown-item ):hover,
-aside li a:not( .dropdown-item ):hover {
-	color: #212529;
-	display: block;
-	text-decoration: none;
-	padding: 0.25em 1.5em;
-	width: 100%;
+#p-personal li a:not(.dropdown-item),
+aside li a:not(.dropdown-item),
+#p-personal li a:not(.dropdown-item):hover,
+aside li a:not(.dropdown-item):hover {
+  color: #212529;
+  display: block;
+  text-decoration: none;
+  padding: 0.25em 1.5em;
+  width: 100%;
 }
 
-#p-personal li a:not( .dropdown-item ):hover,
-aside li a:not( .dropdown-item ):hover {
-	background-color: #f8f9fa;
+#p-personal li a:not(.dropdown-item):hover,
+aside li a:not(.dropdown-item):hover {
+  background-color: #f8f9fa;
 }
 
 #p-tb-label,
@@ -104,226 +128,233 @@ aside li a:not( .dropdown-item ):hover {
 #pt-anonuserpage,
 #pt-anontalk,
 #pt-anoncontribs {
-	display: none;
+  display: none;
 }
 
 #p-banner {
-	font-weight: bold;
+  font-weight: bold;
 }
 
 #p-banner,
 #p-banner:hover,
 #p-banner:visited,
 .mw-hamb {
-	color: #fff;
+  color: #fff;
 }
 
 a.dropdown-item:visited,
 .mw-portlet-body a.new {
-	color: #212529;
+  color: #212529;
 }
 
 #personal-echo-icons ul {
-	margin: 0;
-	padding: 0;
+  margin: 0;
+  padding: 0;
 }
 
 #personal-echo-icons li {
-	display: inline-block;
-	list-style-type: none;
-	position: relative;
-	top: 6px;
+  display: inline-block;
+  list-style-type: none;
+  position: relative;
+  top: 6px;
 }
 
 #pt-notifications-alert .mw-echo-notifications-badge,
 #pt-notifications-notice .mw-echo-notifications-badge {
-	filter: invert( 1 );
+  filter: invert(1);
 }
 
-#pt-notifications-alert .mw-echo-notifications-badge.mw-echo-notifications-badge-all-read:before,
-#pt-notifications-notice .mw-echo-notifications-badge.mw-echo-notifications-badge-all-read:before,
-#pt-notifications-alert .mw-echo-notifications-badge.mw-echo-notifications-badge-all-read,
-#pt-notifications-notice .mw-echo-notifications-badge.mw-echo-notifications-badge-all-read {
-	opacity: 1;
+#pt-notifications-alert
+  .mw-echo-notifications-badge.mw-echo-notifications-badge-all-read:before,
+#pt-notifications-notice
+  .mw-echo-notifications-badge.mw-echo-notifications-badge-all-read:before,
+#pt-notifications-alert
+  .mw-echo-notifications-badge.mw-echo-notifications-badge-all-read,
+#pt-notifications-notice
+  .mw-echo-notifications-badge.mw-echo-notifications-badge-all-read {
+  opacity: 1;
 }
 
-#pt-notifications-alert .mw-echo-notifications-badge.mw-echo-notifications-badge-all-read:before,
-#pt-notifications-notice .mw-echo-notifications-badge.mw-echo-notifications-badge-all-read:before {
-	margin-top: 6px;
+#pt-notifications-alert
+  .mw-echo-notifications-badge.mw-echo-notifications-badge-all-read:before,
+#pt-notifications-notice
+  .mw-echo-notifications-badge.mw-echo-notifications-badge-all-read:before {
+  margin-top: 6px;
 }
 
 /* Sidebar menu
    ========================================================================== */
 
 nav {
-	padding-bottom: 2em;
+  padding-bottom: 2em;
 }
 
 #mw-navigation {
-	border-right: 1px solid #e5e5e5;
+  border-right: 1px solid #e5e5e5;
 }
 
 #mw-navigation h2 {
-	display: none;
+  display: none;
 }
 
 #mw-navigation ul {
-	margin: 0;
+  margin: 0;
 }
 
 #mw-navigation li {
-	list-style-type: none;
+  list-style-type: none;
 }
 
 #mw-navigation a {
-	display: block;
-	padding: 0.2em 1em;
+  display: block;
+  padding: 0.2em 1em;
 }
 
 #mw-navigation a.nav-link.disabled {
-	color: #444;
-	margin-top: 1em;
-	font-weight: bold;
-	background-color: var(--bs-info-bg-subtle);
+  color: #444;
+  margin-top: 1em;
+  font-weight: bold;
+  background-color: var(--bs-info-bg-subtle);
 }
 
-#mw-navigation a:not( .disabled ) {
-	color: var(--bs-info-text-emphasis);
+#mw-navigation a:not(.disabled) {
+  color: var(--bs-info-text-emphasis);
 }
 
-#mw-navigation a:not( .disabled ):hover {
-	text-decoration: underline;
+#mw-navigation a:not(.disabled):hover {
+  text-decoration: underline;
 }
 
 /* Aside (edit) menu
    ========================================================================== */
 
 aside {
-	display: inline-block;
-	white-space: nowrap;
-	z-index: 1000;
+  display: inline-block;
+  white-space: nowrap;
+  z-index: 1000;
 }
 
-aside a:not( .disabled ) {
-	color: #000;
+aside a:not(.disabled) {
+  color: #000;
 }
 
 #p-namespaces .selected a {
-	border-bottom: 3px solid var( --fredik );
+  border-bottom: 3px solid var(--fredik);
 }
 
 #p-namespaces .selected a:hover {
-	text-decoration: none;
+  text-decoration: none;
 }
 
 #p-namespaces-label {
-	display: none;
+  display: none;
 }
 
 .dropdown .nav-link.disabled {
-	color: #6c757d;
-	padding: .3rem .5rem;
+  color: #6c757d;
+  padding: 0.3rem 0.5rem;
 }
 
 .mw-notification-area-layout {
-    top: 4em !important;
+  top: 4em !important;
 }
 
 /* Main content
    ========================================================================== */
 
 #mw-main-container {
-	background-color: #fff;
+  background-color: #fff;
 }
 
 #content {
-	overflow: auto;
-	padding: 1em 0 2em 0;
+  overflow: auto;
+  padding: 1em 0 2em 0;
 }
 
 .mw-body-content {
-	line-height: 1.5em;
+  line-height: 1.5em;
 }
 
 .mw-body-content h1,
 .firstHeading {
-	font-size: 180%;
-	word-wrap: break-word;
+  font-size: 180%;
+  word-wrap: break-word;
 }
 
 .mw-body-content h2 {
-	font-size: 155%;
+  font-size: 155%;
 }
 
 .toctitle h2 {
-	font-size: inherit;
+  font-size: inherit;
 }
 
 .mw-body-content h3 {
-	font-size: 140%;
+  font-size: 140%;
 }
 
 .mw-body-content h4 {
-	font-size: 120%;
+  font-size: 120%;
 }
 
 .mw-body-content h5 {
-	font-size: 110%;
+  font-size: 110%;
 }
 
 .mw-body-content h6 {
-	font-size: 100%;
+  font-size: 100%;
 }
 
 .mw-indicators {
-	float: right;
-	line-height: 1.6;
-	font-size: 0.875em;
-	position: relative;
-	top: 1em;
-	z-index: 1;
+  float: right;
+  line-height: 1.6;
+  font-size: 0.875em;
+  position: relative;
+  top: 1em;
+  z-index: 1;
 }
 
 #mw-indicator-mw-helplink {
-	display: none;
+  display: none;
 }
 
 #firstHeading {
-	overflow: visible;
+  overflow: visible;
 }
 
-#content a:not( .new ):visited,
-#siteNotice a:not( .new ):visited {
-	color: #007bff;
+#content a:not(.new):visited,
+#siteNotice a:not(.new):visited {
+  color: #007bff;
 }
 
 .mw-parser-output ul {
-	margin-bottom: 1rem;
-	margin-top: 0;
+  margin-bottom: 1rem;
+  margin-top: 0;
 }
 
-.mw-parser-output ul li ul, .mw-parser-output .toc ul {
-	margin-bottom: 0;
+.mw-parser-output ul li ul,
+.mw-parser-output .toc ul {
+  margin-bottom: 0;
 }
 
 #mw-upload-form td {
-	vertical-align: top;
+  vertical-align: top;
 }
 
 /* Basic forms
    ========================================================================== */
 
 fieldset {
-	border: 1px solid #a2a9b1;
-	margin: 1em 0 1em 0;
-	padding: 0 1em 1em;
+  border: 1px solid #a2a9b1;
+  margin: 1em 0 1em 0;
+  padding: 0 1em 1em;
 }
 
 legend {
-	font-size: initial;
-	font-weight: bold;
-	padding: revert;
-	width: auto;
+  font-size: initial;
+  font-weight: bold;
+  padding: revert;
+  width: auto;
 }
 
 /* Editor
@@ -331,106 +362,104 @@ legend {
 
 .mw-ui-input,
 .oo-ui-textInputWidget input {
-	line-height: initial;
+  line-height: initial;
 }
 
 .oo-ui-windowManager {
-	position: relative;
-	z-index: 2000;
+  position: relative;
+  z-index: 2000;
 }
 
 .oo-ui-floatableElement-floatable,
 .oo-ui-clippableElement-clippable {
-	background-color: #fff;
-	z-index: 2000;
+  background-color: #fff;
+  z-index: 2000;
 }
 
 .wikiEditor-ui-toolbar .page.page-characters div span {
-	height: auto;
+  height: auto;
 }
 
 .ve-ui-overlay-global.ve-ui-overlay {
-	z-index: 1001;
+  z-index: 1001;
 }
 
 /* fix for MW 1.35 visual editor table row arrow */
 .ve-ui-surface .ve-ce-attachedRootNode.ve-ce-documentNode {
-	padding: 0.5em 1.2em;
+  padding: 0.5em 1.2em;
 }
 
 /* Footer
    ========================================================================== */
 
 .mw-footer {
-	background-color: #fff;
-	border-top: 1px solid #e5e5e5;
-	color: #808080;
-	padding: 3em 1em 1em;
+  background-color: #fff;
+  border-top: 1px solid #e5e5e5;
+  color: #808080;
+  padding: 3em 1em 1em;
 }
 
 .mw-footer a {
-	/* color: #808080; */
-	color: var(--bs-info-text-emphasis);
-	font-weight: 600;
+  /* color: #808080; */
+  color: var(--bs-info-text-emphasis);
+  font-weight: 600;
 }
 
 #footer-info {
-	text-align: center;
+  text-align: center;
 }
 
 #footer-info-copyright {
-	margin-top: 1rem;
+  margin-top: 1rem;
 }
 
 .bmc-btn-container {
-	margin-top: 1rem;
+  margin-top: 1rem;
 }
 
 .mw-footer .bmc-btn .bmc-btn-text {
-	color: var(--bs-white);
+  color: var(--bs-white);
 }
 
 .mw-footer .bmc-btn:hover .bmc-btn-text {
-	color: var(--bs-orange);
+  color: var(--bs-orange);
 }
 
 .mw-footer a:hover {
-	text-decoration: underline;
-
+  text-decoration: underline;
 }
 
 .mw-footer li {
-	display: block;
-	list-style-type: none;
+  display: block;
+  list-style-type: none;
 }
 
 .mw-footer #footer-places li {
-	display: inline;
+  display: inline;
 }
 
 #footer-places {
-	text-align: center;
+  text-align: center;
 }
 
-.mw-footer #footer-places li:not( :first-child )::before {
-	content: ' ― ';
+.mw-footer #footer-places li:not(:first-child)::before {
+  content: " ― ";
 }
 
 #footer-icons {
-	display: flex;
-	justify-content: center;
+  display: flex;
+  justify-content: center;
 }
 
 #footer-icons li:nth-child(odd) {
-    padding-right: 1rem;
+  padding-right: 1rem;
 }
 #footer-icons li:nth-child(even) {
-    padding-left: 1rem;
+  padding-left: 1rem;
 }
 
 /* Recent changes list
    ========================================================================== */
 .mw-changeslist-legend {
-	float: none;
+  float: none;
 }
-
