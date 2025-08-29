@@ -1,0 +1,27 @@
+// Franklin Arctic expedition theme overrides
+// Minimal variables + explicit $theme-colors map; all other settings use Bootstrap defaults.
+
+$primary: #1a2636;
+$secondary: #b3d8e6;
+$success: #6b8e23;
+$info: #3ba7b8;
+$warning: #e6b800;
+$danger: #a83232;
+$light: #f8f9fa;
+$dark: #212529;
+
+// Explicit theme color map (optional in Bootstrap, included here to be strict)
+$theme-colors: (
+  "primary": $primary,
+  "secondary": $secondary,
+  "success": $success,
+  "info": $info,
+  "warning": $warning,
+  "danger": $danger,
+  "light": $light,
+  "dark": $dark,
+);
+
+// Disable rounded corners
+
+$enable-rounded: false;

@@ -1,0 +1,25 @@
+{
+  "name": "mediawiki-skin-fredik",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Custom version of Mediawiki Medik skin intended for franklinova-expedice.cz website",
+  "license": "CC0-1.0",
+  "scripts": {
+    "build:bootstrap": "sass --load-path=node_modules resources/scss/fredik-bootstrap.scss resources/libraries/bootstrap.css --style=expanded",
+    "build:bootstrap:min": "sass --load-path=node_modules resources/scss/fredik-bootstrap.scss resources/libraries/bootstrap.min.css --style=compressed",
+    "build": "npm run build:bootstrap && npm run build:bootstrap:min",
+    "watch": "sass --load-path=node_modules --watch resources/scss/fredik-bootstrap.scss:resources/libraries/bootstrap.css"
+  },
+  "devDependencies": {
+    "bootstrap": "^5.3.3",
+    "sass": "^1.77.0"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "keywords": [
+    "mediawiki",
+    "skin",
+    "bootstrap"
+  ]
+}
