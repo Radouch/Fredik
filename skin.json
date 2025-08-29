@@ -1,7 +1,7 @@
 {
 	"name": "Fredik",
 	"namemsg": "skinname-fredik",
-	"version": "0.4.0",
+	"version": "1.0.0",
 	"author": "Radek Svítil (original author of Medik: Petr Kajzar)",
 	"url": "https://www.mediawiki.org/wiki/Skin:Medik",
 	"description": "Simple and clean skin based on the Bootstrap library",

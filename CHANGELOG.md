@@ -22,3 +22,8 @@
 - Minor layout adjustments (unfloating some blocks)
 - div.mw-body-content now has a .container-fluid class
 
+## 1.0.0
+
+- Minor typography adjustments.
+- Added posibility to build customized Bootstrap styles by overriding variables in custom SCSS file.
+- Updated documentation.
