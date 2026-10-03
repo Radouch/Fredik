@@ -1,6 +1,7 @@
 <?php
 
 use MediaWiki\MediaWikiServices;
+use MediaWiki\Output\OutputPage;
 
 /**
  * SkinTemplate class for the Fredik skin
@@ -16,22 +17,19 @@ class SkinFredik extends SkinTemplate {
 	public $template = 'FredikTemplate';
 
 	/**
-	 * Add CSS via ResourceLoader
+	 * Add meta tags
 	 *
 	 * @param OutputPage $out OutputPage
 	 */
-	public function initPage( OutputPage $out ) {
-		$out->addMeta( 'theme-color', RequestContext::getMain()->getConfig()->get( 'FredikColor' ) );
+	public function initPage( OutputPage $out ): void {
+		parent::initPage( $out );
+
+		$out->addMeta( 'theme-color', (string)$this->getConfig()->get( 'FredikColor' ) );
 
 		if ( MediaWikiServices::getInstance()
 			->getUserOptionsLookup()
-			->getOption( $this->getSkin()->getUser(), 'skin-responsive' ) ) {
+			->getOption( $this->getUser(), 'skin-responsive' ) ) {
 				$out->addMeta( 'viewport', 'width=device-width' );
 		}
-
-		$out->addModuleStyles( [ 'skins.fredik' ] );
-
-		$out->addModules( [ 'skins.fredik.js' ] );
 	}
-
 }
