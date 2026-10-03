@@ -39,24 +39,6 @@ ul {
   padding: 0;
 }
 
-ul .margin-inline {
-  margin-left: 1.6em;
-  margin-right: 1.6em;
-  margin-top: 0;
-  margin-bottom: 0;
-}
-
-ol .margin-inline {
-  margin-left: 3.2em;
-  margin-right: 3.2em;
-  margin-top: 0;
-  margin-bottom: 0;
-}
-
-dd .margin-inline {
-  margin: 1.6em, 0;
-}
-
 /* Navbar and hamburger menu
    ========================================================================== */
 
@@ -305,6 +287,20 @@ aside a:not(.disabled) {
   font-size: 100%;
 }
 
+/*
+ * MediaWiki 1.45+ wraps headings in .mw-heading1 ... .mw-heading6.
+ * Avoid applying the skin heading scale twice.
+ */
+.mw-heading1,
+.mw-heading2,
+.mw-heading3,
+.mw-heading4,
+.mw-heading5,
+.mw-heading6 {
+  font-size: 100%;
+  font-weight: 500;
+}
+
 .mw-indicators {
   float: right;
   line-height: 1.6;
@@ -456,6 +452,32 @@ legend {
 }
 #footer-icons li:nth-child(even) {
   padding-left: 1rem;
+}
+
+/* Fallback styling for MediaWiki message boxes
+   ========================================================================== */
+
+.mw-message-box {
+  margin: 1em 0;
+  padding: 0.75em 1em;
+  border: 1px solid #a2a9b1;
+  border-radius: 0.25rem;
+  background-color: #f8f9fa;
+}
+
+.mw-message-box-warning {
+  background-color: #fff4d6;
+  border-color: #f1c232;
+}
+
+.mw-message-box-error {
+  background-color: #fde7e9;
+  border-color: #d33;
+}
+
+.mw-message-box-success {
+  background-color: #eaf3e6;
+  border-color: #36c;
 }
 
 /* Recent changes list
