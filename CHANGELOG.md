@@ -36,5 +36,4 @@
 - Added compatibility styling for MediaWiki 1.45+ heading markup.
 - Improved wrapping of page actions on narrow screens.
 - Removed ineffective `.margin-inline` CSS rules and added message box fallback styles.
-- Aligned the Bootstrap development dependency with Bootstrap 5.3.8.
 - Updated compatibility and license documentation.
