@@ -5,7 +5,7 @@ created for [WikiSkripta](https://www.wikiskripta.eu) as **[Medik](https://www.m
 
 The main difference from the original Medik is the use of a custom SCSS file for styling, allowing you to customize Bootstrap variables. There are also changes to the footer layout and to the styling of the sidebar and search box.
 
-The skin should be compatible with _MediaWiki 1.43_ and is likely compatible with _MediaWiki 1.44_ (not tested).
+The skin targets _MediaWiki 1.43 and later_. Compatibility updates from the current Medik codebase have been incorporated for MediaWiki 1.44–1.46; testing on the exact MediaWiki version used in production is still recommended.
 
 > **WARNING**
 > This skin is rather a one‑off: there is no promise to develop it further (e.g., to keep it compatible with future MediaWiki releases).
@@ -74,4 +74,4 @@ Copyright (c) First Faculty of Medicine, Charles University
 - This skin was originally created for WikiSkripta, a medical wiki
   project: <https://www.wikiskripta.eu>
 
-See the LICENSE file for details.
+See the [LICENSE.md](LICENSE.md) file for details.
