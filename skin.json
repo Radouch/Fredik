@@ -1,9 +1,9 @@
 {
 	"name": "Fredik",
 	"namemsg": "skinname-fredik",
-	"version": "1.0.0",
+	"version": "1.1.0",
 	"author": "Radek Svítil (original author of Medik: Petr Kajzar)",
-	"url": "https://www.mediawiki.org/wiki/Skin:Medik",
+	"url": "https://github.com/Radouch/Fredik",
 	"description": "Simple and clean skin based on the Bootstrap library",
 	"descriptionmsg": "fredik-desc",
 	"license-name": "CC0-1.0",
@@ -16,13 +16,19 @@
 					"name": "fredik",
 					"bodyOnly": true,
 					"template": "FredikTemplate",
-					"responsive": true
+					"responsive": true,
+					"scripts": [
+						"skins.fredik.js"
+					],
+					"styles": [
+						"skins.fredik"
+					]
 				}
 			]
 		}
 	},
 	"requires": {
-		"MediaWiki": ">= 1.39.0"
+		"MediaWiki": ">= 1.43.0"
 	},
 	"MessagesDirs": {
 		"Fredik": [
