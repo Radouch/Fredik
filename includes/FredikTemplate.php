@@ -9,17 +9,17 @@ use MediaWiki\MediaWikiServices;
  */
 class FredikTemplate extends BaseTemplate {
 
+	private $templateParserClass;
+	private $htmlClass;
+	private $linkerClass;
+
 	/**
 	 * Outputs the entire contents of the page
 	 * (uses templates/skin.mustache as a template)
 	 */
 	public function execute() {
-		// Add support for MW 1.44
-		if ( version_compare( MW_VERSION, '1.40', '>=' ) ) {
-			$templateParser = new MediaWiki\Html\TemplateParser( __DIR__ . '/../templates' );
-		} else {
-			$templateParser = new TemplateParser( __DIR__ . '/../templates' );
-		}
+		$this->resolveMwVersion();
+		$templateParser = new $this->templateParserClass( __DIR__ . '/../templates' );
 
 		$contentWidth = [
 			'full' => 'col-xl-10',
@@ -55,13 +55,29 @@ class FredikTemplate extends BaseTemplate {
 	}
 
 	/**
+	 * Resolve TemplateParser, Html, and Linker class names used by supported
+	 * MediaWiki releases.
+	 */
+	protected function resolveMwVersion() {
+		if ( version_compare( MW_VERSION, '1.40', '>=' ) ) {
+			$this->templateParserClass = 'MediaWiki\\Html\\TemplateParser';
+			$this->htmlClass = 'MediaWiki\\Html\\Html';
+			$this->linkerClass = 'MediaWiki\\linker\\Linker';
+		} else {
+			$this->templateParserClass = 'TemplateParser';
+			$this->htmlClass = 'Html';
+			$this->linkerClass = 'Linker';
+		}
+	}
+
+	/**
 	 * Generates the site title
 	 * @param string $id
 	 *
 	 * @return string html
 	 */
 	protected function getLogo( $id = 'p-logo' ) {
-		$html = Html::openElement(
+		$html = $this->htmlClass::openElement(
 			'div',
 			[
 				'id' => $id,
@@ -71,17 +87,17 @@ class FredikTemplate extends BaseTemplate {
 		);
 
 		// Hamburger menu
-		$html .= Html::element( 'span', [ 'class' => 'mw-hamb' ] );
+		$html .= $this->htmlClass::element( 'span', [ 'class' => 'mw-hamb' ] );
 
 		// Site title
-		$siteTitle = Html::element(
+		$siteTitle = $this->htmlClass::element(
 			'span',
 			[
 				'class' => 'mw-desktop-sitename'
 			],
 			RequestContext::getMain()->getConfig()->get( 'Sitename' )
 		);
-		$siteMobileTitle = Html::element(
+		$siteMobileTitle = $this->htmlClass::element(
 			'span',
 			[
 				'class' => 'mw-mobile-sitename'
@@ -91,7 +107,7 @@ class FredikTemplate extends BaseTemplate {
 		);
 		$logoWidth = RequestContext::getMain()->getConfig()->get( 'FredikLogoWidth' );
 		$siteLogo = ( RequestContext::getMain()->getConfig()->get( 'FredikShowLogo' ) === 'main' ?
-			Html::rawElement(
+			$this->htmlClass::rawElement(
 				'span',
 				[
 					'class' => 'mw-wiki-logo',
@@ -109,7 +125,7 @@ class FredikTemplate extends BaseTemplate {
 		$subtitle = RequestContext::getMain()->getConfig()->get( 'FredikSubtitle' );
 		$subtitleHtml = '';
 		if ( $subtitle ) {
-			$subtitleHtml = Html::element(
+			$subtitleHtml = $this->htmlClass::element(
 				'span',
 				[
 					'class' => 'mw-desktop-subtitle d-none d-md-inline'
@@ -118,13 +134,13 @@ class FredikTemplate extends BaseTemplate {
 			);
 		}
 
-		$html .= Html::rawElement(
+		$html .= $this->htmlClass::rawElement(
 			'a',
 			[
 				'id' => 'p-banner',
 				'class' => 'mw-wiki-title navbar-brand',
 				'href' => $this->data['nav_urls']['mainpage']['href']
-			] + Linker::tooltipAndAccesskeyAttribs( 'p-logo' ),
+			] + $this->linkerClass::tooltipAndAccesskeyAttribs( 'p-logo' ),
 			$siteLogo .
 			( RequestContext::getMain()->getConfig()->get( 'FredikUseLogoWithoutText' ) ?
 				'' :
@@ -132,7 +148,7 @@ class FredikTemplate extends BaseTemplate {
 			)
 		);
 
-		$html .= Html::closeElement( 'div' );
+		$html .= $this->htmlClass::closeElement( 'div' );
 
 		return $html;
 	}
@@ -143,7 +159,7 @@ class FredikTemplate extends BaseTemplate {
 	 * @return string html
 	 */
 	protected function getSearch() {
-		$html = Html::openElement(
+		$html = $this->htmlClass::openElement(
 			'form',
 			[
 				'action' => $this->get( 'wgScript' ),
@@ -152,11 +168,11 @@ class FredikTemplate extends BaseTemplate {
 				'id' => 'p-search'
 			]
 		);
-		$html .= Html::hidden( 'title', $this->get( 'searchtitle' ) );
-		$html .= Html::rawElement(
+		$html .= $this->htmlClass::hidden( 'title', $this->get( 'searchtitle' ) );
+		$html .= $this->htmlClass::rawElement(
 			'h3',
 			[ 'hidden' ],
-			Html::label( $this->getMsg( 'search' )->text(), 'searchInput' )
+			$this->htmlClass::label( $this->getMsg( 'search' )->text(), 'searchInput' )
 		);
 		$html .= $this->getSkin()->makeSearchInput( [ 'id' => 'searchInput', 'class' => 'form-control' ] );
 		$html .= $this->getSkin()->makeSearchButton(
@@ -167,7 +183,7 @@ class FredikTemplate extends BaseTemplate {
 				'class' => 'searchButton btn btn-outline-dark my-2 my-sm-0'
 			]
 		);
-		$html .= Html::closeElement( 'form' );
+		$html .= $this->htmlClass::closeElement( 'form' );
 
 		return $html;
 	}
@@ -177,19 +193,19 @@ class FredikTemplate extends BaseTemplate {
 	 * @return string html
 	 */
 	protected function getAside() {
-		$html = Html::openElement( 'aside' );
+		$html = $this->htmlClass::openElement( 'aside' );
 
-		$html .= Html::rawElement(
+		$html .= $this->htmlClass::rawElement(
 			'div',
-			[ 'class' => 'd-flex flex-row' ],
+			[ 'class' => 'd-flex flex-row flex-wrap' ],
 			$this->getPortlet(
 				'namespaces',
 				$this->data['content_navigation']['namespaces'],
 				null,
 				[ 'portlet-list-tag' => 'div', 'list-item' => [ 'tag' => 'span' ] ]
 			) .
-			Html::rawElement( 'div', [ 'class' => 'dropdown' ],
-				Html::element(
+			$this->htmlClass::rawElement( 'div', [ 'class' => 'dropdown' ],
+				$this->htmlClass::element(
 					'a',
 					[
 						'class' => 'dropdown-toggle ',
@@ -201,14 +217,14 @@ class FredikTemplate extends BaseTemplate {
 					],
 					$this->getMsg( 'actions' )->text()
 				) .
-				Html::rawElement(
+				$this->htmlClass::rawElement(
 					'div',
 					[ 'class' => 'dropdown-menu dropdown-menu-end' ],
 					$this->getPageLinks()
 				)
 			) .
-			Html::rawElement( 'div', [ 'class' => 'dropdown' ],
-				Html::element(
+			$this->htmlClass::rawElement( 'div', [ 'class' => 'dropdown' ],
+				$this->htmlClass::element(
 					'a',
 					[
 						'class' => 'dropdown-toggle ',
@@ -220,7 +236,7 @@ class FredikTemplate extends BaseTemplate {
 					],
 					$this->getMsg( 'toolbox' )->text()
 				) .
-				Html::rawElement(
+				$this->htmlClass::rawElement(
 					'div',
 					[ 'class' => 'dropdown-menu dropdown-menu dropdown-menu-end' ],
 					$this->getPortlet(
@@ -233,7 +249,7 @@ class FredikTemplate extends BaseTemplate {
 			)
 		);
 
-		$html .= Html::closeElement( 'aside' );
+		$html .= $this->htmlClass::closeElement( 'aside' );
 
 		return $html;
 	}
@@ -254,12 +270,12 @@ class FredikTemplate extends BaseTemplate {
 		$html = '';
 
 		$html .= ( RequestContext::getMain()->getConfig()->get( 'FredikShowLogo' ) === 'sidebar' ?
-			Html::rawElement(
+			$this->htmlClass::rawElement(
 				'div',
 				[
 					'class' => 'mw-wiki-navigation-logo'
 				],
-				Html::rawElement(
+				$this->htmlClass::rawElement(
 					'a',
 					[
 						'class' => 'mw-wiki-logo',
@@ -362,33 +378,33 @@ class FredikTemplate extends BaseTemplate {
 			foreach ( $echoicons as $key => $item ) {
 				$icons .= $this->getSkin()->makeListItem( $key, $item );
 			}
-			$html .= Html::rawElement(
+			$html .= $this->htmlClass::rawElement(
 				'div',
 				[ 'id' => 'personal-echo-icons' ],
-				Html::rawElement( 'ul', [], $icons )
+				$this->htmlClass::rawElement( 'ul', [], $icons )
 			);
 		}
 		// User tools
-		$html .= Html::openElement(
+		$html .= $this->htmlClass::openElement(
 							'div',
 							[ 'id' => 'user-tools', 'class' => 'btn-group' ]
 						);
 
 		// User icon for smaller screens
-		$html .= Html::rawElement(
+		$html .= $this->htmlClass::rawElement(
 							 'div',
 							 [ 'class' => 'profile-icon' ],
 							 ''
 						 );
 
 		// Splitted dropdown button (with username or login option)
-		$html .= Html::rawElement(
+		$html .= $this->htmlClass::rawElement(
 							 'a',
 							 [ 'href' =>
 								 $personaltools['userpage']['links'][0]['href'] ??
 									$personaltools['login']['links'][0]['href'] ??
 									$personaltools['login-private']['links'][0]['href'] ],
-							 Html::element(
+							 $this->htmlClass::element(
 								 'button',
 								 [
 									 'class' => 'btn btn-link',
@@ -397,7 +413,7 @@ class FredikTemplate extends BaseTemplate {
 									$this->getMsg( 'login' )->text()
 							 )
 						 ) .
-						 Html::rawElement(
+						 $this->htmlClass::rawElement(
 							 'button',
 							 [
 								 'class' => 'btn btn-link dropdown-toggle dropdown-toggle-split',
@@ -406,11 +422,11 @@ class FredikTemplate extends BaseTemplate {
 								 'aria-haspopup' => 'true',
 								 'aria-expanded' => 'false'
 							 ],
-							 Html::rawElement( 'span', [ 'class' => 'visually-hidden' ], '&darr;' )
+							 $this->htmlClass::rawElement( 'span', [ 'class' => 'visually-hidden' ], '&darr;' )
 						 );
 
 		// Basic list output
-		$html .= Html::rawElement(
+		$html .= $this->htmlClass::rawElement(
 							 'div',
 							 [ 'class' => 'dropdown-menu dropdown-menu-end' ],
 							 $this->getPortlet(
@@ -421,7 +437,7 @@ class FredikTemplate extends BaseTemplate {
 							 )
 						 );
 
-		$html .= Html::closeElement( 'div' );
+		$html .= $this->htmlClass::closeElement( 'div' );
 
 		return $html;
 	}
@@ -492,7 +508,7 @@ class FredikTemplate extends BaseTemplate {
 			if ( $options['wrapper'] == 'none' ) {
 				$html .= $this->get( $object );
 			} else {
-				$html .= Html::rawElement(
+				$html .= $this->htmlClass::rawElement(
 					$options['wrapper'],
 					$options['parameters'],
 					$this->get( $object )
@@ -557,7 +573,7 @@ class FredikTemplate extends BaseTemplate {
 		if ( is_array( $content ) ) {
 			if ( count( $content ) === 0 ) { return;
 			}
-			$contentText = Html::openElement( $options['portlet-list-tag'],
+			$contentText = $this->htmlClass::openElement( $options['portlet-list-tag'],
 				[ 'lang' => $this->get( 'userlang' ), 'dir' => $this->get( 'dir' ) ]
 			);
 			$contentText .= $options['list-prepend'];
@@ -585,7 +601,7 @@ class FredikTemplate extends BaseTemplate {
 				}
 			}
 
-			$contentText .= Html::closeElement( $options['portlet-list-tag'] );
+			$contentText .= $this->htmlClass::closeElement( $options['portlet-list-tag'] );
 		} else {
 			$contentText = $content;
 		}
@@ -594,7 +610,7 @@ class FredikTemplate extends BaseTemplate {
 		$divOptions = [
 			'role' => 'navigation',
 			'id' => Sanitizer::escapeIdForAttribute( $options['id'] ),
-			'title' => Linker::titleAttrib( $options['id'] ),
+			'title' => $this->linkerClass::titleAttrib( $options['id'] ),
 			'aria-labelledby' => $labelId
 		];
 		if ( !is_array( $options['class'] ) ) {
@@ -619,7 +635,7 @@ class FredikTemplate extends BaseTemplate {
 			if ( is_string( $options['body-id'] ) ) {
 				$bodyDivOptions['id'] = $options['body-id'];
 			}
-			$body = Html::rawElement( $options['body-wrapper'], $bodyDivOptions,
+			$body = $this->htmlClass::rawElement( $options['body-wrapper'], $bodyDivOptions,
 				$contentText .
 				$this->getSkin()->getAfterPortlet( $name )
 			);
@@ -627,8 +643,8 @@ class FredikTemplate extends BaseTemplate {
 			$body = $contentText . $this->getSkin()->getAfterPortlet( $name );
 		}
 
-		$html = Html::rawElement( 'div', $divOptions,
-			Html::rawElement( 'a', $labelOptions, $msgString ) .
+		$html = $this->htmlClass::rawElement( 'div', $divOptions,
+			$this->htmlClass::rawElement( 'a', $labelOptions, $msgString ) .
 			$body
 		);
 
@@ -689,7 +705,7 @@ class FredikTemplate extends BaseTemplate {
 
 		$html = '';
 
-		$html .= Html::openElement( 'div', [
+		$html .= $this->htmlClass::openElement( 'div', [
 			'id' => $options['id'],
 			'class' => $options['class'],
 			'role' => 'contentinfo',
@@ -699,9 +715,9 @@ class FredikTemplate extends BaseTemplate {
 
 		$iconsHTML = '';
 		if ( count( $validFooterIcons ) > 0 ) {
-			$iconsHTML .= Html::openElement( 'ul', [ 'id' => "{$options['link-prefix']}-icons" ] );
+			$iconsHTML .= $this->htmlClass::openElement( 'ul', [ 'id' => "{$options['link-prefix']}-icons" ] );
 			foreach ( $validFooterIcons as $blockName => $footerIcons ) {
-				$iconsHTML .= Html::openElement( 'li', [
+				$iconsHTML .= $this->htmlClass::openElement( 'li', [
 					'id' => Sanitizer::escapeIdForAttribute(
 						"{$options['link-prefix']}-{$blockName}ico"
 					),
@@ -710,36 +726,36 @@ class FredikTemplate extends BaseTemplate {
 				foreach ( $footerIcons as $iconkey => $icon ) {
 					$iconsHTML .= $this->getSkin()->makeFooterIcon( $icon );
 				}
-				$iconsHTML .= Html::closeElement( 'li' );
+				$iconsHTML .= $this->htmlClass::closeElement( 'li' );
 			}
-			$iconsHTML .= Html::closeElement( 'ul' );
+			$iconsHTML .= $this->htmlClass::closeElement( 'ul' );
 		}
 
 		$linksHTML = '';
 		if ( count( $validFooterLinks ) > 0 ) {
 			if ( $options['link-style'] == 'flat' ) {
-				$linksHTML .= Html::openElement( 'ul', [
+				$linksHTML .= $this->htmlClass::openElement( 'ul', [
 					'id' => "{$options['link-prefix']}-list",
 					'class' => 'footer-places'
 				] );
 				foreach ( $validFooterLinks as $link ) {
-					$linksHTML .= Html::rawElement(
+					$linksHTML .= $this->htmlClass::rawElement(
 						'li',
 						[ 'id' => Sanitizer::escapeIdForAttribute( $link ) ],
 						$this->get( $link )
 					);
 				}
-				$linksHTML .= Html::closeElement( 'ul' );
+				$linksHTML .= $this->htmlClass::closeElement( 'ul' );
 			} else {
-				$linksHTML .= Html::openElement( 'div', [ 'id' => "{$options['link-prefix']}-list" ] );
+				$linksHTML .= $this->htmlClass::openElement( 'div', [ 'id' => "{$options['link-prefix']}-list" ] );
 				foreach ( $validFooterLinks as $category => $links ) {
-					$linksHTML .= Html::openElement( 'ul',
+					$linksHTML .= $this->htmlClass::openElement( 'ul',
 						[ 'id' => Sanitizer::escapeIdForAttribute(
 							"{$options['link-prefix']}-{$category}"
 						) ]
 					);
 					foreach ( $links as $link ) {
-						$linksHTML .= Html::rawElement(
+						$linksHTML .= $this->htmlClass::rawElement(
 							'li',
 							[ 'id' => Sanitizer::escapeIdForAttribute(
 								"{$options['link-prefix']}-{$category}-{$link}"
@@ -747,9 +763,9 @@ class FredikTemplate extends BaseTemplate {
 							$this->get( $link )
 						);
 					}
-					$linksHTML .= Html::closeElement( 'ul' );
+					$linksHTML .= $this->htmlClass::closeElement( 'ul' );
 				}
-				$linksHTML .= Html::closeElement( 'div' );
+				$linksHTML .= $this->htmlClass::closeElement( 'div' );
 			}
 		}
 
@@ -759,7 +775,7 @@ class FredikTemplate extends BaseTemplate {
 			$html .= $linksHTML . $iconsHTML;
 		}
 
-		$html .= $this->getClear() . Html::closeElement( 'div' );
+		$html .= $this->getClear() . $this->htmlClass::closeElement( 'div' );
 
 		return $html;
 	}
