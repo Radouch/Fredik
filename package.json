@@ -11,7 +11,7 @@
     "watch": "sass --load-path=node_modules --watch resources/scss/fredik-bootstrap.scss:resources/libraries/bootstrap.css"
   },
   "devDependencies": {
-    "bootstrap": "^5.3.8",
+    "bootstrap": "^5.3.3",
     "sass": "^1.77.0"
   },
   "engines": {
