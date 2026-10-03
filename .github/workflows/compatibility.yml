@@ -1,0 +1,38 @@
+name: Compatibility checks
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.1'
+
+      - name: Validate PHP syntax
+        run: |
+          php -l includes/SkinFredik.php
+          php -l includes/FredikTemplate.php
+
+      - name: Validate skin.json
+        run: php -r 'json_decode(file_get_contents("skin.json"), true, 512, JSON_THROW_ON_ERROR);'
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: npm
+
+      - name: Install build dependencies
+        run: npm ci
+
+      - name: Compile Bootstrap styles
+        run: npm run build
