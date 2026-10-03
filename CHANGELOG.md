@@ -27,3 +27,14 @@
 - Minor typography adjustments.
 - Added posibility to build customized Bootstrap styles by overriding variables in custom SCSS file.
 - Updated documentation.
+
+## 1.1.0
+
+- Raised the minimum supported MediaWiki version to 1.43.
+- Updated skin registration so ResourceLoader modules are declared by the skin.
+- Modernized MediaWiki API usage in the skin and template classes.
+- Added compatibility styling for MediaWiki 1.45+ heading markup.
+- Improved wrapping of page actions on narrow screens.
+- Removed ineffective `.margin-inline` CSS rules and added message box fallback styles.
+- Aligned the Bootstrap development dependency with Bootstrap 5.3.8.
+- Updated compatibility and license documentation.
